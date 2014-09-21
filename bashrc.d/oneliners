@@ -1,0 +1,5 @@
+#!/bin/sh
+
+alias urlencode='$(which perl) -MURI::Escape -n -e '\''$dec = URI::Encode->new(); print $dec->encode($_)."\n";'\'
+alias urldecode='$(which perl) -MURI::Escape -n -e '\''$dec = URI::Encode->new(); print $dec->decode($_)."\n";'\'
+

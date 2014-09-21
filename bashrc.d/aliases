@@ -1,4 +1,4 @@
-# -*- shell-script -*-
+#!/bin/sh
 
 # make standard file manipulation commands verbose
 alias mv='mv -v'

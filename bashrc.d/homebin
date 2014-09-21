@@ -1,3 +1,4 @@
+#!/bin/sh
 # Add PWD/bin and user's bin directory to PATH
 [ -d $HOME/bin ] && export PATH=./bin;$PATH:$HOME/bin
 

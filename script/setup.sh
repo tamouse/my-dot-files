@@ -10,14 +10,15 @@ fi
 
 set -x 
 
+mkdir -p $HOME/.old-dot-files
+mv $HOME/.bash_profile $HOME/.bashrc $HOME/.bashrc.d $HOME/.emacs $HOME/.emacs.d $HOME/.gem $HOME/.gitconfig $HOME/.gitignore_global $HOME/.profile $HOME/.old-dot-files
 ln -fs bash_profile $HOME/.bash_profile
 ln -fs bashrc $HOME/.bashrc
 ln -fs bashrd.d $HOME/.bashrc.d
 ln -fs emacs.d $HOME/.emacs.d
-mv $HOME/.emacs $HOME/.emacs-file-not-used
 ln -fs gem $HOME/.gem
 ln -fs gitconfig $HOME/.gitconfig
-ln -fs gitignoreall $HOME/.gitignoreall
-ln -fs profile $HOME/.profile 
+ln -fs gitignore_global $HOME/.gitignore_global
+ln -fs profile $HOME/.profile
 
 echo "Log out and log in again to ensure everything is in it's place."

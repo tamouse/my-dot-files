@@ -16,10 +16,6 @@ export LC_COLLATE="en_US.UTF-8"
 export ORGANIZATION="Tamara Temple Web Development"
 export EDITOR='emacsclient'
 export VISUAL=$EDITOR
-export NOTIFY='/usr/bin/notify-send -t 0 Reminder'
-
-export DOCKER_HOST=tcp://127.0.0.1:11043
-export DOCKER_PORT=11043
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
@@ -29,6 +25,3 @@ if [ -n "$BASH_VERSION" ]; then
 	. "$HOME/.bashrc"
     fi
 fi
-
-# trace
-echo .profile completed
