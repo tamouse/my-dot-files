@@ -1,0 +1,31 @@
+# -*- shell-script -*-
+# search pirate bay for torrents
+function tpb() {
+    wget -U Mozilla -qO - $(echo "http://thepiratebay.org/search/$@/0/7/0" | sed 's/ /\%20/g') \
+	| grep -o 'http\:\/\/torrents\.thepiratebay\.org\/.*\.torrent' | tac;
+}
+
+# search kickasstorrents
+# sample torrent link returned from search:
+#http://torcache.net/torrent/886F7439A3D04852C50A291CF317DA61C53553BD.torrent?title=[kat.ph]breaking.bad.s04e11.hdtv.xvid.asap.eztv
+function kat() {
+    wget -U Mozilla -qO - $(echo "http://www.kat.ph/usearch/$@" | sed 's/ /\%20/g') \
+	| grep -E -o 'http://torcache.net/torrent/.*\.torrent\?title=[^"'\'']+' | tac
+}
+
+# search btjunkie
+function btj() {
+    wget -U Mozilla -qO - $(echo "http://btjunkie.org/search?q=$@" | sed 's/ /+/g') \
+	| grep -E -o 'http://dl.btjunkie.org/torrent/.*/download.torrent' | tac
+}
+
+# search demonoid
+# search string template: http://www.demonoid.me/files/?category=0&subcategory=All&quality=All&seeded=0&external=2&query=Breaking+Bad&to=1&uid=0&sort=
+# demonoid's search results are not as pretty or useful as the others, so we capture the name of the torrent which preceeds the actual torrent download link
+# we take both values and output the title as a comment after the torrent file link
+function dem() {
+    echo 'http://www.demonoid.me/files/?category=0&subcategory=All&quality=All&seeded=0&external=2&query='$@'&to=1&uid=0&sort=' | sed 's/ /+/g' \
+	| xargs wget -U Mozilla -qO -  \
+	| perl -ne 'm|/files/details| && m|\<a href=.*?\>([^<]+)\</a\>| && (print "$1\t") ; m|/files/download| && m|(/files/download/[0-9]+/[0-9]+/)| && (print "$1\n")' \
+	| awk -F "\t" '{print "http://www.demonoid.me" $2 " # " $1}' |tac
+}

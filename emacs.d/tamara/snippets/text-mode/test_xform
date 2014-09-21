@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: test_xform
+# key: xform
+# --
+[quote${1:$(if yas-text "=" "")}${2:author}]

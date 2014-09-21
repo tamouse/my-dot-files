@@ -1,0 +1,21 @@
+# -*- shell-script -*-
+# functions and aliases for todo.txt cli program
+
+alias t='todo -t'
+alias ta='todo -t add'
+
+function log () {
+    todo addto log $(date "+%FT%T") "@$(hostname)" "$*"
+}
+
+function watched () {
+    todo -t addto watchedeps "$*"
+}
+
+function smoke () {
+    todo addto smoke $(date "+%FT%T") 1
+}
+
+function savelink () {
+    todo -t addto sharedlinks "$*"
+}

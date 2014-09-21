@@ -1,0 +1,8 @@
+# -*- shell-script -*-
+
+alias be="bundle exec"
+alias brake="bundle exec rake"
+alias bguard="bundle exec guard"
+alias bc="bundle console"
+alias brc="bundle exec rails console"
+alias brr="bundle exec rails runner"

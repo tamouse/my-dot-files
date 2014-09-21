@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: font-style
+# key: fst
+# --
+font-style: ${1:italic}

@@ -1,0 +1,21 @@
+# -*- shell-script -*-
+
+alias gs="git status"
+alias gaa="git add --all -v"
+alias gcm="git commit -m"
+alias gcf="git commit -F" # file
+alias gce="VISUAL=emacsclient24 git commit" # run editor
+alias gps="git push"
+alias gpsoh="git push -u origin HEAD"
+alias gpl="git pull"
+alias gco="git checkout"
+alias gcob="git checkout -b"
+alias gb="git branch"
+alias gbls="git branch -av"
+alias gls="git ls-files"
+alias gr="git remote"
+alias grls="git remote -v"
+alias gl="git log"
+alias glog="git log"
+alias glg='git log --graph --pretty=format":%C(yellow)%h%Cblue%d%Creset %s %C(white) %an,%ar%Creset" --abbrev-commit --decorate'
+alias glo="git log --oneline"

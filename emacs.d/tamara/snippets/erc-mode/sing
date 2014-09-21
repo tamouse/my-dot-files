@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: sing
+# key: sing
+# --
+♫ ${1:lyric} ♫

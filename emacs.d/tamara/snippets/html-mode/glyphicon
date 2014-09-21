@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: icon
+# key: icon
+# --
+<i class="glyphicon glyphicon-${1:icon}"></i>
