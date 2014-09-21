@@ -70,12 +70,9 @@ function psgrep() {
 }
 
 ## Vagrant aliases, cos lazy
-function v() {
-    vagrant "$@"
-}
-
 alias vs="vagrant ssh"
 alias vup="vagrant up"
+alias vhalt="vagrant halt"
 alias vdn="vagrant suspend"
 alias vp='vagrant provision'
 alias vstat="vagrant status"
