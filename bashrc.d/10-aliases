@@ -10,10 +10,6 @@ function tree () {
     /bin/ls -AR | grep ':$' | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/' 
 }
 
-alias emacs="/usr/local/Cellar/emacs/24.3/Emacs.app/Contents/MacOS/Emacs"
-alias edit="/usr/local/Cellar/emacs/24.3/bin/emacsclient"
-alias e="/usr/local/Cellar/emacs/24.3/bin/emacsclient"
-
 export LSCMD=$(which ls)
 
 alias ls="$LSCMD -AFGh"
@@ -44,8 +40,6 @@ function clean_filename () {
     echo "$1" | perl -p -e 'chomp;s/\s+/_/g;s/[^[:alnum:]_+\.,-]*//g;lc;'
 }
 
-
-
 # find diff between backup and current files in pwd after a filtering operation
 function diffbak () {
     for f in *.bak ; do
@@ -67,33 +61,17 @@ function rename_all () {
     done
 }
 
-
 alias openip='lsof -Pnl +M' # open IP connections (4 or 6)
 alias openip4='lsof -Pnl +M -i4' # open IPv4 connections
 alias openip6='lsof -Pnl +M -i6' # open IPv6 connections
-
-
-
-# quick google up 10 results
-function qg() {
-    echo "$@" | perl -MURI::Escape -ne 'chomp();$_=uri_escape($_);s/%20/+/g;print "http://www.google.com/search?q=$_";' \
-	| xargs wget -U Mozilla -qO - \
-	| $HOME/bin/parsegoogle.pl | tac
-}
-
-REMPROG=`which remind`
-alias rem="$REMPROG -q $HOME/.remind"
 
 function psgrep() {
     ps auxww | grep -v grep | grep --color=auto -E "(^USER|$*)"
 }
 
-alias backupmuis1t='rsync -avz --progress --exclude=backups --exclude-from=/Volumes/muis1t/rsync-excludes /Volumes/muis1t/ pi@pi:/home/shares/public/sg2t/muis1t/'
-
-
 ## Vagrant aliases, cos lazy
 function v() {
-    vagrant '$@'
+    vagrant "$@"
 }
 
 alias vs="vagrant ssh"

@@ -1,0 +1,19 @@
+# This file contains patterns git will ignore across all projects
+
+# Emacs cruft
+*~
+\#*\#
+.\#*
+*_flymake.*
+
+# OS/X cruft
+.DS_Store
+.localized
+.CFUserTextEncoding
+
+# other things i don't ususally want in a repo
+*.bak
+*.zip
+*.tgz
+*.gz
+*.Z
