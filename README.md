@@ -19,3 +19,8 @@ like any other such repo.
 If you run scripts or programs that destroy the link(s), you may want to update
 the local repo with those changes and relink.
 
+## Emacs24
+
+I have my emacs24 development environment in here as well. Installing emacs24 on older ubuntu/debian systems is pretty straight-forward from source, it just takes a bit:
+
+See: [https://gist.github.com/tamouse/4b1cff0368b3e9f6baf7](https://gist.github.com/tamouse/4b1cff0368b3e9f6baf7)
