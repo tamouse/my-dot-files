@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: excerpt
-# key: excerpt
-# --
-[[#excerpt]]
-$0
-[[#excerptend]]

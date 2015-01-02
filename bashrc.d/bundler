@@ -6,3 +6,7 @@ alias bguard="bundle exec guard"
 alias bc="bundle console"
 alias brc="bundle exec rails console"
 alias brr="bundle exec rails runner"
+alias brs="bundle exec rails server"
+alias bspec='bundle exec rspec'
+alias bcuke='bundle exec cucumber'
+alias bpry='bundle exec pry'

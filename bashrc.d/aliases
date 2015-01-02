@@ -10,8 +10,15 @@ function tree () {
     /bin/ls -AR | grep ':$' | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/' 
 }
 
-export LSCMD=$(which ls)
+alias path='echo -e ${PATH//:/\\n}'
+alias now='date "+%T"'
 
+alias ports='netstat -tulanp'
+alias openip='lsof -Pnl +M' # open IP connections (4 or 6)
+alias openip4='lsof -Pnl +M -i4' # open IPv4 connections
+alias openip6='lsof -Pnl +M -i6' # open IPv6 connections
+
+export LSCMD=$(which ls)
 alias ls="$LSCMD -AFGh"
 alias ll="$LSCMD -AFGlh"
 alias l1="$LSCMD -1h"
@@ -60,10 +67,6 @@ function rename_all () {
 	mv "$f" "${f%%.$1}.$2"
     done
 }
-
-alias openip='lsof -Pnl +M' # open IP connections (4 or 6)
-alias openip4='lsof -Pnl +M -i4' # open IPv4 connections
-alias openip6='lsof -Pnl +M -i6' # open IPv6 connections
 
 function psgrep() {
     ps auxww | grep -v grep | grep --color=auto -E "(^USER|$*)"

@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: heart-say
-# key: heart
-# --
-♥ ${1:say} ♥ 

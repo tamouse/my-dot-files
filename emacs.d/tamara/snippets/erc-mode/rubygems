@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: rubygems
-# key: rubygems
-# --
-rubygems guides: http://guides.rubygems.org/ -- how to use, create, and share gems.

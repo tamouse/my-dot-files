@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: middleman-post-current-page-url
-# key: cp
-# --
-<%= current_page.url %>

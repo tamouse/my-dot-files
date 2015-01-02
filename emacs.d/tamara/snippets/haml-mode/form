@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: form
-# key: %f
-# --
-%form{:action => '${1:/action}', :method => '${2:post}'$0}
