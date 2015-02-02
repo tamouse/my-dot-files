@@ -11,7 +11,7 @@ fi
 set -x 
 
 mkdir -p $HOME/.old-dot-files
-mv $HOME/.bash_profile $HOME/.bashrc $HOME/.bashrc.d $HOME/.emacs $HOME/.emacs.d $HOME/.gitconfig $HOME/.gitignore_global $HOME/.profile $HOME/.old-dot-files
+mv $HOME/.bash_profile $HOME/.bashrc $HOME/.bashrc.d $HOME/.emacs $HOME/.emacs.d $HOME/.gitconfig $HOME/.gitignore_global $HOME/.profile $HOME/.profile.d $HOME/.old-dot-files
 ln -fs $PWD/bash_profile $HOME/.bash_profile
 ln -fs $PWD/bashrc $HOME/.bashrc
 ln -fs $PWD/bashrc.d $HOME/.bashrc.d
@@ -19,5 +19,6 @@ ln -fs $PWD/emacs.d $HOME/.emacs.d
 ln -fs $PWD/gitconfig $HOME/.gitconfig
 ln -fs $PWD/gitignore_global $HOME/.gitignore_global
 ln -fs $PWD/profile $HOME/.profile
+ln -fw $PWD/profile.d $HOME/.profile.d
 
 echo "Log out and log in again to ensure everything is in it's place."

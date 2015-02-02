@@ -18,6 +18,13 @@ export ORGANIZATION="Tamara Temple Web Development"
 export EDITOR='emacsclient'
 export VISUAL=$EDITOR
 
+# extra profile files
+if [ -d ~/.profile.d ] ; then
+    for s in $(find ~/.profile.d/ -type f | grep -v '~$') ; do
+        [ -x "$s" ] && source "$s"
+    done
+fi
+
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
@@ -26,3 +33,4 @@ if [ -n "$BASH_VERSION" ]; then
 	. "$HOME/.bashrc"
     fi
 fi
+
