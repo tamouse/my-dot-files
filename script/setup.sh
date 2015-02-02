@@ -13,7 +13,7 @@ set -x
 SAVE_DIR=$HOME/.old-dot-files
 
 rm -f $SAVE_DIR
-mkdir -p 
+mkdir -p $SAVE_DIR
 mv $HOME/.bash_profile $HOME/.bashrc $HOME/.bashrc.d $HOME/.emacs $HOME/.emacs.d $HOME/.gitconfig $HOME/.gitignore_global $HOME/.profile $HOME/.profile.d $SAVE_DIR
 ln -fs $PWD/bash_profile $HOME/.bash_profile
 ln -fs $PWD/bashrc $HOME/.bashrc
