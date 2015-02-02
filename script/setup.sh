@@ -18,7 +18,6 @@ mv $HOME/.bash_profile $HOME/.bashrc $HOME/.bashrc.d $HOME/.emacs $HOME/.emacs.d
 ln -fs $PWD/bash_profile $HOME/.bash_profile
 ln -fs $PWD/bashrc $HOME/.bashrc
 ln -fs $PWD/bashrc.d $HOME/.bashrc.d
-ln -fs $PWD/emacs.d $HOME/.emacs.d
 ln -fs $PWD/gitconfig $HOME/.gitconfig
 ln -fs $PWD/gitignore_global $HOME/.gitignore_global
 ln -fs $PWD/profile $HOME/.profile
