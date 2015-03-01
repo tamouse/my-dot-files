@@ -8,7 +8,13 @@ alias tac="tail -r "
 alias e='emacsclient'
 
 export LSCMD=$(which ls)
-export LS_OPTS='--color=auto'
+system_type=`uname`
+if [ "$system_type" == "Darwin" ] ; then
+    export LS_OPTS="-G"
+else
+    export LS_OPTS="--color=auto"
+fi
+       
 alias ls="$LSCMD -AFGh $LS_OPTS"
 alias ll="$LSCMD -AFGlh $LS_OPTS"
 alias l1="$LSCMD -1h $LS_OPTS"
