@@ -5,9 +5,9 @@ to make setting up new boxes for development, test, and general use easier and q
 
 ## Installation
 
-    $ git clone https://github.com/tamouse/my-dot-files.git
-    $ cd my-dot-files
-    $ ./script/setup.sh
+    $ git clone https://github.com/tamouse/my-dot-files.git .my_dot_files
+    $ cd .my-dot-files
+    $ ./setup.sh
 
 Log out, then in again to make sure everything is in place.
 

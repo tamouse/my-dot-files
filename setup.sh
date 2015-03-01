@@ -10,11 +10,9 @@ fi
 
 set -x 
 
-SAVE_DIR=$HOME/.old-dot-files
-
-rm -f $SAVE_DIR
+SAVE_DIR=$HOME/.old-dot-files-$(date "+%Y%m%d%H%M%S")
 mkdir -p $SAVE_DIR
-mv $HOME/.bash_profile $HOME/.bashrc $HOME/.bashrc.d $HOME/.emacs $HOME/.emacs.d $HOME/.gitconfig $HOME/.gitignore_global $HOME/.profile $HOME/.profile.d $SAVE_DIR
+mv $HOME/.bash_profile $HOME/.bashrc $HOME/.bashrc.d $HOME/.gitconfig $HOME/.gitignore_global $HOME/.profile $HOME/.profile.d $SAVE_DIR
 ln -fs $PWD/bash_profile $HOME/.bash_profile
 ln -fs $PWD/bashrc $HOME/.bashrc
 ln -fs $PWD/bashrc.d $HOME/.bashrc.d

@@ -5,6 +5,14 @@ alias mv='mv -v'
 alias cp='cp -v'
 alias rm='rm -v'
 alias tac="tail -r "
+alias e='emacsclient'
+
+export LSCMD=$(which ls)
+export LS_OPTS='--color=auto'
+alias ls="$LSCMD -AFGh $LS_OPTS"
+alias ll="$LSCMD -AFGlh $LS_OPTS"
+alias l1="$LSCMD -1h $LS_OPTS"
+alias lm="$LSCMD -mh $LS_OPTS"
 
 function tree () {
     /bin/ls -AR | grep ':$' | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/' 
@@ -18,18 +26,12 @@ alias openip='lsof -Pnl +M' # open IP connections (4 or 6)
 alias openip4='lsof -Pnl +M -i4' # open IPv4 connections
 alias openip6='lsof -Pnl +M -i6' # open IPv6 connections
 
-export LSCMD=$(which ls)
-alias ls="$LSCMD -AFGh"
-alias ll="$LSCMD -AFGlh"
-alias l1="$LSCMD -1h"
-alias lm="$LSCMD -mh"
-
 alias cpan='echo use cpanm instead'
 
 alias phplint='php -l'
 alias phplintdir='for f in $(find . -name "*.php") ; do php -l "$f"; done'
 
-alias ping1='/bin/ping -c 1'
+alias ping1='ping -c 1'
 alias timestamp='date "+%Y-%m-%d-%H-%M-%S"'
 
 # replace spaces in file names with underscores
@@ -42,9 +44,9 @@ function lc_filename () {
     echo "$1" | tr '[:upper:]' '[:lower:]'
 }
 
-# clean file name: lower case, no spaces, alphanumeric plus _-+., only
+# clean file name: lower case, no spaces, alphanumeric plus _-+. only
 function clean_filename () {
-    echo "$1" | perl -p -e 'chomp;s/\s+/_/g;s/[^[:alnum:]_+\.,-]*//g;lc;'
+    echo "$1" | perl -p -e 'chomp;s/\s+/_/g;s/[^[:alnum:]_+\.-]*//g;lc;'
 }
 
 # find diff between backup and current files in pwd after a filtering operation
@@ -71,11 +73,3 @@ function rename_all () {
 function psgrep() {
     ps auxww | grep -v grep | grep --color=auto -E "(^USER|$*)"
 }
-
-## Vagrant aliases, cos lazy
-alias vs="vagrant ssh"
-alias vup="vagrant up"
-alias vhalt="vagrant halt"
-alias vdn="vagrant suspend"
-alias vp='vagrant provision'
-alias vstat="vagrant status"
