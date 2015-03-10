@@ -32,6 +32,6 @@ ln -fs $PWD/bash_profile $HOME/.bash_profile && \
     ln -fs $PWD/profile $HOME/.profile && \
     ln -fs $PWD/profile.d $HOME/.profile.d || exit -2
 
-/bin/ls -Al .[a-zA-Z]*
+/bin/ls -dAl $HOME/.[a-zA-Z]*
 
 echo "Log out and log in again to ensure everything is in it's place."
