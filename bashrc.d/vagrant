@@ -6,3 +6,10 @@ alias vhalt="vagrant halt"
 alias vdn="vagrant suspend"
 alias vp='vagrant provision'
 alias vstat="vagrant status"
+alias vdest="vagrant destroy"
+alias vb="vagrant box"
+alias vbl="vagrant box list"
+
+v () {
+    vagrant "$@"
+}

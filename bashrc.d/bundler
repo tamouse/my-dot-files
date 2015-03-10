@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Lots of these can also be put under the bin/ folder in a project
+# using `bundle binstub <gemname>` 
+
 alias be="bundle exec"
 alias brake="bundle exec rake"
 alias bguard="bundle exec guard"
@@ -8,5 +11,6 @@ alias brc="bundle exec rails console"
 alias brr="bundle exec rails runner"
 alias brs="bundle exec rails server"
 alias bspec='bundle exec rspec'
+alias brspec='bundle exec rspec -f d -c --fail-fast'
 alias bcuke='bundle exec cucumber'
 alias bpry='bundle exec pry'

@@ -110,5 +110,3 @@ if [ -d ~/.bashrc.d ] ; then
     done
 fi
 
-export NVM_DIR="/Users/tamara/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

@@ -10,15 +10,28 @@ fi
 
 set -x 
 
+
 SAVE_DIR=$HOME/.old-dot-files-$(date "+%Y%m%d%H%M%S")
-mkdir -p $SAVE_DIR
-mv $HOME/.bash_profile $HOME/.bashrc $HOME/.bashrc.d $HOME/.gitconfig $HOME/.gitignore_global $HOME/.profile $HOME/.profile.d $SAVE_DIR
-ln -fs $PWD/bash_profile $HOME/.bash_profile
-ln -fs $PWD/bashrc $HOME/.bashrc
-ln -fs $PWD/bashrc.d $HOME/.bashrc.d
-ln -fs $PWD/gitconfig $HOME/.gitconfig
-ln -fs $PWD/gitignore_global $HOME/.gitignore_global
-ln -fs $PWD/profile $HOME/.profile
-ln -fs $PWD/profile.d $HOME/.profile.d
+mkdir -p $SAVE_DIR && \
+    echo "Saving current files in $SAVE_DIR" && \
+    mv $HOME/.bash_profile \
+       $HOME/.bashrc \
+       $HOME/.bashrc.d \
+       $HOME/.gitconfig \
+       $HOME/.gitignore_global \
+       $HOME/.profile \
+       $HOME/.profile.d \
+       $SAVE_DIR || exit -1
+
+echo "Linking files from $PWD into $HOME"
+ln -fs $PWD/bash_profile $HOME/.bash_profile && \
+    ln -fs $PWD/bashrc $HOME/.bashrc && \
+    ln -fs $PWD/bashrc.d $HOME/.bashrc.d && \
+    ln -fs $PWD/gitconfig $HOME/.gitconfig && \
+    ln -fs $PWD/gitignore_global $HOME/.gitignore_global && \
+    ln -fs $PWD/profile $HOME/.profile && \
+    ln -fs $PWD/profile.d $HOME/.profile.d || exit -2
+
+/bin/ls -Al .[a-zA-Z]*
 
 echo "Log out and log in again to ensure everything is in it's place."

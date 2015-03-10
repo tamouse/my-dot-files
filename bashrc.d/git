@@ -1,21 +1,28 @@
 #!/bin/sh
 
-alias gaa="git add --all -v"
-alias gb="git branch"
-alias gbls="git branch -av"
-alias gcm="git commit -m"
-alias gco="git checkout"
-alias gcob="git checkout -b"
-alias gl="git log"
+alias gaa='git add --all -v'
+alias gb='git branch'
+alias gbls='git branch -av'
+alias gcm='git commit -m'
+alias gco='git checkout'
+alias gcob='git checkout -b'
+alias gl='git log'
 alias glg='git log --graph --pretty=format":%C(yellow)%h%Cblue%d%Creset %s %C(white) %an,%ar%Creset" --abbrev-commit --decorate'
-alias glo="git log --oneline"
-alias glog="git log"
-alias gloh="git log --oneline|head"
-alias gls="git ls-files"
-alias gpl="git pull"
-alias gploh="git pull origin HEAD"
-alias gps="git push"
-alias gpsoh="git push -u origin HEAD"
-alias gr="git remote"
-alias grls="git remote -v"
-alias gs="git status"
+alias glo='git log --oneline --decorate'
+alias glog='git log'
+alias gloh='git log --oneline --decorate | head'
+alias gls='git ls-files'
+alias gpl='git pull'
+alias gploh='git pull origin HEAD'
+alias gps='git push'
+alias gpsoh='git push -u origin HEAD'
+alias gpsfuoh='git push -fu origin HEAD'
+alias gr='git remote'
+alias grls='git remote -v'
+alias gs='git status'
+
+# the one command to do them all!
+# Usage: gacp 'commit message to use'
+gacp () {
+    git add --all -v && git commit -m "$1" && git push -u origin HEAD
+}
