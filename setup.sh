@@ -1,4 +1,4 @@
-#!/bin/sh 
+#!/bin/sh
 #
 # Set up the dot files in the appropate places in the users $HOME directory
 #
@@ -6,9 +6,9 @@
 if [ ! -F "bashrc"] ; then
   echo "Not executing in  dot-files main directory!"
   exit 1
-fi 
+fi
 
-set -x 
+set -x
 
 
 SAVE_DIR=$HOME/.old-dot-files-$(date "+%Y%m%d%H%M%S")
@@ -21,7 +21,7 @@ mkdir -p $SAVE_DIR && \
        $HOME/.gitignore_global \
        $HOME/.profile \
        $HOME/.profile.d \
-       $SAVE_DIR || exit -1
+       $SAVE_DIR
 
 echo "Linking files from $PWD into $HOME"
 ln -fs $PWD/bash_profile $HOME/.bash_profile && \
