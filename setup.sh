@@ -10,7 +10,6 @@ fi
 
 set -x
 
-
 SAVE_DIR=$HOME/.old-dot-files-$(date "+%Y%m%d%H%M%S")
 mkdir -p $SAVE_DIR && \
     echo "Saving current files in $SAVE_DIR" && \

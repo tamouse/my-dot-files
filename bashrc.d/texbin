@@ -1,3 +1,7 @@
 #!/usr/bin/env bash
+
 # Add /usr/texbin/ to path
-export PATH=$PATH:/usr/texbin
+
+[ -d /usr/texbin ] \
+    && export PATH=$PATH:/usr/texbin \
+    || echo "tex must not be installed"
