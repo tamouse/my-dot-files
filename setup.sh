@@ -22,18 +22,16 @@ mkdir -p $SAVE_DIR && \
        $HOME/.profile \
        $HOME/.profile.d \
        $HOME/.railsrc \
-       $HOME/.railsrc.d \
        $SAVE_DIR
 
 echo "Linking files from $PWD into $HOME"
-ln -fs $PWD/bash_profile $HOME/.bash_profile && \
-    ln -fs $PWD/bashrc $HOME/.bashrc && \
-    ln -fs $PWD/bashrc.d $HOME/.bashrc.d && \
-    ln -fs $PWD/gitconfig $HOME/.gitconfig && \
-    ln -fs $PWD/gitignore_global $HOME/.gitignore_global && \
-    ln -fs $PWD/profile $HOME/.profile && \
-    ln -fs $PWD/profile.d $HOME/.profile.d && \
-    ln -fs $PWD/railsrc.d $HOME/.railsrc.d \
+ln -fs $PWD/bash_profile $HOME/.bash_profile \
+    && ln -fs $PWD/bashrc $HOME/.bashrc \
+    && ln -fs $PWD/bashrc.d $HOME/.bashrc.d \
+    && ln -fs $PWD/gitconfig $HOME/.gitconfig \
+    && ln -fs $PWD/gitignore_global $HOME/.gitignore_global \
+    && ln -fs $PWD/profile $HOME/.profile \
+    && ln -fs $PWD/profile.d $HOME/.profile.d \
         || exit -2
 
 sed <$PWD/railsrc >$HOME/.railsrc -e "s|\$HOME|$HOME|g"
