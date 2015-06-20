@@ -17,3 +17,11 @@
 *.tgz
 *.gz
 *.Z
+
+# TeX Garbage
+*.log
+*.aux
+*.nav
+*.out
+*.snm
+*.toc
