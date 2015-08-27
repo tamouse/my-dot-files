@@ -14,14 +14,14 @@ if [ "$system_type" == "Darwin" ] ; then
 else
     export LS_OPTS="--color=auto"
 fi
-       
+
 alias ls="$LSCMD -AFGh $LS_OPTS"
 alias ll="$LSCMD -AFGlh $LS_OPTS"
 alias l1="$LSCMD -1h $LS_OPTS"
 alias lm="$LSCMD -mh $LS_OPTS"
 
 function tree () {
-    /bin/ls -AR | grep ':$' | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/' 
+    /bin/ls -AR | grep ':$' | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'
 }
 
 alias path='echo -e ${PATH//:/\\n}'
@@ -39,6 +39,9 @@ alias phplintdir='for f in $(find . -name "*.php") ; do php -l "$f"; done'
 
 alias ping1='ping -c 1'
 alias timestamp='date "+%Y-%m-%d-%H-%M-%S"'
+
+alias irc='ssh tamouse.org'
+alias rs='rails server -b 0.0.0.0'
 
 # replace spaces in file names with underscores
 function unspace_filename () {
