@@ -20,10 +20,6 @@ alias ll="$LSCMD -AFGlh $LS_OPTS"
 alias l1="$LSCMD -1h $LS_OPTS"
 alias lm="$LSCMD -mh $LS_OPTS"
 
-function tree () {
-    /bin/ls -AR | grep ':$' | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'
-}
-
 alias path='echo -e ${PATH//:/\\n}'
 alias now='date "+%T"'
 
@@ -42,6 +38,12 @@ alias timestamp='date "+%Y-%m-%d-%H-%M-%S"'
 
 alias irc='ssh tamouse.org'
 alias rs='rails server -b 0.0.0.0'
+
+alias s3sync='s3cmd -r --rexclude-from=$HOME/.s3sync-excludes sync '
+
+function tree () {
+    /bin/ls -AR | grep ':$' | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'
+}
 
 # replace spaces in file names with underscores
 function unspace_filename () {
