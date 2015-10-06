@@ -3,7 +3,7 @@
 # Set up the dot files in the appropate places in the users $HOME directory
 #
 
-if [ ! -F "bashrc"] ; then
+if [ ! -F "bashrc" ] ; then
   echo "Not executing in  dot-files main directory!"
   exit 1
 fi
