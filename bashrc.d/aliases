@@ -11,8 +11,10 @@ export LSCMD=$(which ls)
 system_type=`uname`
 if [ "$system_type" == "Darwin" ] ; then
     export LS_OPTS="-G"
+    alias EMACS='open -a Emacs --args -g 200x70'
 else
     export LS_OPTS="--color=auto"
+    alias EMACS=emacs
 fi
 
 alias ls="$LSCMD -AFGh $LS_OPTS"
