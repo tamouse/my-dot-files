@@ -1,6 +1,7 @@
 #!/bin/bash
 ## Vagrant aliases, cos lazy
 alias vs="vagrant ssh"
+alias vsd="vagrant ssh development"
 alias vup="vagrant up"
 alias vhalt="vagrant halt"
 alias vdn="vagrant halt"
