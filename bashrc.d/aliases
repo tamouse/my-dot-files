@@ -86,3 +86,5 @@ function rename_all () {
 function psgrep() {
     ps auxww | grep -v grep | grep --color=auto -E "(^USER|$*)"
 }
+
+alias clean_photos='for f in *; do chmod -x $f ; mv $f $(echo $f|tr "A-Z_" "a-z-"); done'
