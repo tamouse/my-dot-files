@@ -88,3 +88,4 @@ function psgrep() {
 }
 
 alias clean_photos='for f in *; do chmod -x $f ; mv $f $(echo $f|tr "A-Z_" "a-z-"); done'
+alias rsysnx='rsync -avz --rexclude-from=$HOME/.rsync_excludes '
