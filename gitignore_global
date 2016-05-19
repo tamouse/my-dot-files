@@ -28,4 +28,8 @@
 
 # JetBrains cruft
 .idea/
-.editorconfig
+
+.sass-cache/
+log/
+tmp/
+.bundle/
