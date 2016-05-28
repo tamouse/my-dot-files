@@ -28,3 +28,5 @@ alias gs='git status'
 gacp () {
     git add --all -v && git commit -m "$1" && git push -u origin HEAD
 }
+
+alias gyolo='git add --all && git commit -m $(date "+%FT%T") && git push -fu origin HEAD'
