@@ -91,3 +91,6 @@ alias clean_photos='for f in *; do chmod -x $f ; mv $f $(echo $f|tr "A-Z_" "a-z-
 alias rsysnx='rsync -avz --rexclude-from=$HOME/.rsync_excludes '
 
 alias log_action='echo "$(date "+%FT%T"): "'
+function dl() {
+    echo $(date "+%FT%T") "$PWD" ':' "$@" >> $HOME/.dev.log
+}
