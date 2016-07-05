@@ -18,6 +18,7 @@ mkdir -p $SAVE_DIR && \
        $HOME/.bashrc.d \
        $HOME/.gitconfig \
        $HOME/.gitignore_global \
+       $HOME/.gradle.properties \
        $HOME/.profile \
        $HOME/.profile.d \
        $HOME/.railsrc \
@@ -29,6 +30,7 @@ ln -fs $PWD/bash_profile $HOME/.bash_profile \
     && ln -fs $PWD/bashrc.d $HOME/.bashrc.d \
     && ln -fs $PWD/gitconfig $HOME/.gitconfig \
     && ln -fs $PWD/gitignore_global $HOME/.gitignore_global \
+    && ln -fs $PWD/gradle.properties $HOME/.gradle.properties \
     && ln -fs $PWD/profile $HOME/.profile \
     && ln -fs $PWD/profile.d $HOME/.profile.d \
         || exit -2

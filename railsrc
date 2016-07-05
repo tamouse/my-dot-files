@@ -1,1 +1,1 @@
---skip-bundle --skip-test-unit --skip-spring --skip-turbolinks -m $HOME/.railsrc.d/my_rails.rb
+--skip-spring --skip-turbolinks

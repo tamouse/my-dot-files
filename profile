@@ -18,6 +18,8 @@ export ORGANIZATION="Tamara Temple Web Development"
 export EDITOR='emacsclient'
 export VISUAL=$EDITOR
 
+export ANDROID_HOME=$HOME/Library/Android/sdk
+
 # extra profile files
 if [ -d ~/.profile.d ] ; then
     for s in $(find ~/.profile.d/ -type f | grep -v '~$') ; do
