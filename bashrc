@@ -56,14 +56,14 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+if [ -f ~/.bashrc.d/git-prompt.sh ]; then
+    source ~/.bashrc.d/git-prompt.sh
+fi
+
 if [ "$color_prompt" = yes ]; then
-    PS1='\n${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]:\[\033[01;33m\]\D{%Y-%m-%d}@\T\[\033[00m\]\n\$ '
-
-    #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='\n${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]:\[\033[01;33m\]\D{%Y-%m-%d}@\T\[\033[00m\]$(__git_ps1)\n\$ '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h\:\w:\D{%Y-%m-%d}@\T\\n\$ '
-
-    #PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h\:\W:\D{%Y-%m-%d}@\T$(__git_ps1)\n\$ '
 fi
 unset color_prompt force_color_prompt
 

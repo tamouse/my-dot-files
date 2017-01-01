@@ -94,3 +94,15 @@ alias log_action='echo "$(date "+%FT%T"): "'
 function dl() {
     echo $(date "+%FT%T") "$PWD" ':' "$@" >> $HOME/.dev.log
 }
+
+
+function new_project() {
+    git init "$1" && \
+	pushd "$1" && \
+	echo "$2" > README.txt && \
+	echo "$2" > .git/description && \
+	echo "/node_modules/" >> .gitignore && \
+	hub create -d "$2" && \
+	yarn init && \
+	gacp initial
+}
