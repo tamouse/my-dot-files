@@ -19,6 +19,7 @@ export EDITOR='emacsclient'
 export VISUAL=$EDITOR
 
 export ANDROID_HOME=$HOME/Library/Android/sdk
+export EMACS_ORG_PROTOCOL_PORT=9998
 
 # extra profile files
 if [ -d ~/.profile.d ] ; then
@@ -31,7 +32,6 @@ fi
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
     if [ -f "$HOME/.bashrc" ]; then
-	echo Included  $HOME/.bashrc
 	. "$HOME/.bashrc"
     fi
 fi
