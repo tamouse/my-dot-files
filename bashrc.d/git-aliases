@@ -3,6 +3,7 @@
 alias gaa='git add --all -v'
 alias gb='git branch'
 alias gbls='git branch -av'
+alias gcl="git clone"
 alias gcm='git commit -m'
 alias gco='git checkout'
 alias gcob='git checkout -b'
@@ -23,6 +24,7 @@ alias gpsfuoh='git push -fu origin HEAD'
 alias gr='git remote'
 alias grls='git remote -v'
 alias gs='git status'
+alias gorg='git remote -v|grep origin|grep push|cut -f2|cut -d" " -f1""'
 
 # the one command to do them all!
 # Usage: gacp 'commit message to use'
@@ -30,4 +32,4 @@ gacp () {
     git add --all -v && git commit -m "$1" && git push -u origin HEAD
 }
 
-alias gyolo='git add --all && git commit -m $(date "+%FT%T") && git push -fu origin HEAD'
+alias gyolo='git add --all && git commit -m $(date "+YOLO.%FT%T") && git push -fu origin HEAD'
