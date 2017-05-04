@@ -1,8 +1,8 @@
 [user]
 	name = Tamara Temple
-	email = tamouse@gmail.com
+	email = tamara.temple@reachlocal.com
 [core]
-	excludesfile = /Users/tamara/.gitignore_global
+	excludesfile = /Users/tamara.temple/.gitignore_global
 	autocrlf = input
 [color]
 	ui = true
@@ -22,3 +22,5 @@
 	aa = add --all
 	cim = commit --message
 	pufu = push -fu
+[commit]
+	template = /Users/tamara.temple/.stCommitMsg

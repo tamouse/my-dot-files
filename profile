@@ -31,7 +31,6 @@ fi
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
     if [ -f "$HOME/.bashrc" ]; then
-	echo Included  $HOME/.bashrc
-	. "$HOME/.bashrc"
+	    . "$HOME/.bashrc"
     fi
 fi
