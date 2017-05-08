@@ -15,10 +15,8 @@ export LC_CTYPE="en_US.UTF-8"
 export LC_COLLATE="en_US.UTF-8"
 
 export ORGANIZATION="Tamara Temple Web Development"
-export EDITOR='emacsclient'
+export EDITOR='emacs'
 export VISUAL=$EDITOR
-
-export ANDROID_HOME=$HOME/Library/Android/sdk
 
 # extra profile files
 if [ -d ~/.profile.d ] ; then
@@ -31,7 +29,6 @@ fi
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
     if [ -f "$HOME/.bashrc" ]; then
-	echo Included  $HOME/.bashrc
 	. "$HOME/.bashrc"
     fi
 fi
