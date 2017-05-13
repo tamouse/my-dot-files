@@ -22,16 +22,15 @@ export ANDROID_HOME=$HOME/Library/Android/sdk
 
 # extra profile files
 if [ -d ~/.profile.d ] ; then
-    for s in $(find ~/.profile.d/ -type f | grep -v '~$') ; do
-        [ -x "$s" ] && source "$s"
-    done
+  for s in $(find ~/.profile.d/ -type f | grep -v '~$') ; do
+    [ -x "$s" ] && source "$s"
+  done
 fi
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
-    # include .bashrc if it exists
-    if [ -f "$HOME/.bashrc" ]; then
-	echo Included  $HOME/.bashrc
-	. "$HOME/.bashrc"
-    fi
+  # include .bashrc if it exists
+  if [ -f "$HOME/.bashrc" ]; then
+	  . "$HOME/.bashrc"
+  fi
 fi

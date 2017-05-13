@@ -529,4 +529,3 @@ __git_ps1 ()
 
 	return $exit
 }
-echo 'git-prompt.sh ran'
