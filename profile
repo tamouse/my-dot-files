@@ -19,6 +19,7 @@ export EDITOR='emacsclient'
 export VISUAL=$EDITOR
 
 export ANDROID_HOME=$HOME/Library/Android/sdk
+export EMACS_ORG_PROTOCOL_PORT=9998
 
 # extra profile files
 if [ -d ~/.profile.d ] ; then

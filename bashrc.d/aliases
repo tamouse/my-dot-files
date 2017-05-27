@@ -16,6 +16,9 @@ else
     export LS_OPTS="--color=auto"
     alias EMACS=emacs
 fi
+alias freenode='emacs -g 100x70 --title freenode --eval "(freenode)" &'
+alias transadvice='emacs -g 100x70 --title transadvice --eval "(transadvice)" &'
+
 
 alias ls="$LSCMD -AFGh $LS_OPTS"
 alias ll="$LSCMD -AFGlh $LS_OPTS"
