@@ -1,11 +1,13 @@
 #!/bin/sh
 
 alias gaa='git add --all -v'
+alias ci='git add --all -v && git commit -m '
 alias gb='git branch'
 alias gbls='git branch -av'
 alias gcl="git clone"
 alias gcm='git commit -m'
 alias gco='git checkout'
+alias co='git checkout'
 alias gcob='git checkout -b'
 alias gd='git diff'
 alias gl='git log'
@@ -21,6 +23,7 @@ alias gps='git push'
 alias gpsoh='git push -u origin HEAD'
 alias gpsfoh='git push -fu origin HEAD'
 alias gpsfuoh='git push -fu origin HEAD'
+alias pufu='git push -fu origin HEAD'
 alias gr='git remote'
 alias grls='git remote -v'
 alias gs='git status'
@@ -33,3 +36,10 @@ gacp () {
 }
 
 alias gyolo='git add --all && git commit -m $(date "+YOLO.%FT%T") && git push -fu origin HEAD'
+
+grurl () {
+    xx_remote=$1
+    [ -z "$xx_remote" ] && xx_remote=origin
+    git remote --verbose | grep "$1" | grep fetch | cut -f2 | cut -d' ' -f1
+    unset xx_remote
+}
