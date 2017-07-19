@@ -23,15 +23,15 @@ export EMACS_ORG_PROTOCOL_PORT=9998
 
 # extra profile files
 if [ -d ~/.profile.d ] ; then
-    for s in $(find ~/.profile.d/ -type f | grep -v '~$') ; do
-        [ -x "$s" ] && source "$s"
-    done
+  for s in $(find ~/.profile.d/ -type f | grep -v '~$') ; do
+    [ -x "$s" ] && source "$s"
+  done
 fi
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
-    # include .bashrc if it exists
-    if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
-    fi
+  # include .bashrc if it exists
+  if [ -f "$HOME/.bashrc" ]; then
+	  . "$HOME/.bashrc"
+  fi
 fi
