@@ -6,6 +6,9 @@ alias cp='cp -v'
 alias rm='rm -v'
 alias tac="tail -r "
 alias e='emacsclient'
+alias ec='emacsclient -a "" -c -n'
+
+alias eject='diskutil eject'
 
 export LSCMD=$(which ls)
 system_type=`uname`
@@ -45,6 +48,9 @@ alias irc='ssh tamouse.org'
 alias rs='rails server -b 0.0.0.0'
 
 alias s3sync='s3cmd -r --rexclude-from=$HOME/.s3sync-excludes sync '
+
+
+
 
 function tree () {
     /bin/ls -AR | grep ':$' | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'
@@ -102,10 +108,12 @@ function dl() {
 function new_project() {
     git init "$1" && \
 	pushd "$1" && \
-	echo "$2" > README.txt && \
-	echo "$2" > .git/description && \
+	echo "$2" | tee README.txt | tee .git/description | pbcopy && \
 	echo "/node_modules/" >> .gitignore && \
 	hub create -d "$2" && \
 	yarn init && \
 	gacp initial
 }
+
+
+alias ytdl='youtube-dl -f 18 -o "%(title)s-%(id)s.%(ext)s" -k -x --audio-format mp3 '
