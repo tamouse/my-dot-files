@@ -1,4 +1,6 @@
-# aliases for bluewater fission project
+# aliases for bluewater fission project; not working on this
+# but these are a pretty good example of using aliases with
+# a vagrant box
 
 vsc () {
     echo "starting $@ on vm"
