@@ -6,6 +6,7 @@ alias cp='cp -v'
 alias rm='rm -v'
 alias tac="tail -r "
 alias e='emacsclient'
+alias ec='emacsclient -a "" -c -n'
 
 export LSCMD=$(which ls)
 system_type=`uname`
@@ -33,7 +34,7 @@ alias openip='lsof -Pnl +M' # open IP connections (4 or 6)
 alias openip4='lsof -Pnl +M -i4' # open IPv4 connections
 alias openip6='lsof -Pnl +M -i6' # open IPv6 connections
 
-alias cpan='echo use cpanm instead'
+alias cpan='cpanm'
 
 alias phplint='php -l'
 alias phplintdir='for f in $(find . -name "*.php") ; do php -l "$f"; done'
@@ -45,6 +46,12 @@ alias irc='ssh tamouse.org'
 alias rs='rails server -b 0.0.0.0'
 
 alias s3sync='s3cmd -r --rexclude-from=$HOME/.s3sync-excludes sync '
+
+
+# POSTGRESQL START AND STOP
+alias pgstart='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
+alias pgstop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
+
 
 function tree () {
     /bin/ls -AR | grep ':$' | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'
