@@ -3,7 +3,7 @@
 # Aliases for doing npm stuff
 alias npms='npm start'
 alias npmr='npm run'
-ailas npmt='npm test'
+alias npmt='npm test'
 alias npmi='npm install'
 alias npmis='npm install --save'
 alias npmid='npm install --save-dev'
