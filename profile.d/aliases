@@ -49,6 +49,12 @@ alias rs='rails server -b 0.0.0.0'
 
 alias s3sync='s3cmd -r --rexclude-from=$HOME/.s3sync-excludes sync '
 
+alias pgstart='pg_ctl -D /usr/local/var/postgres start'
+alias pgup='pg_ctl -D /usr/local/var/postgres start'
+alias pgstop='pg_ctl -D /usr/local/var/postgres stop'
+alias pgdn='pg_ctl -D /usr/local/var/postgres stop'
+alias pgstatus='pg_ctl -D /usr/local/var/postgres status'
+alias pgst='pg_ctl -D /usr/local/var/postgres status'
 
 
 
