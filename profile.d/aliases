@@ -113,11 +113,15 @@ function dl() {
 
 function new_project() {
     git init "$1" && \
-	pushd "$1" && \
-	echo "$2" | tee README.txt | tee .git/description | pbcopy && \
+	cd "$1" && \
+	echo -n '# ' > README.md && \
+	echo "$1" >> README.md && \
+	echo "" >> README.md && \
+	echo "$2" | tee -a README.md | tee .git/description | pbcopy && \
 	echo "/node_modules/" >> .gitignore && \
 	hub create -d "$2" && \
 	yarn init && \
+	wget 'https://www.contributor-covenant.org/version/1/4/code-of-conduct/CODE_OF_CONDUCT.md' && \
 	gacp initial
 }
 
