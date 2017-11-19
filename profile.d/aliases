@@ -18,6 +18,9 @@ else
     export LS_OPTS="--color=auto"
     alias EMACS=emacs
 fi
+
+alias sumacs='sudo emacs -nw -Q'
+
 alias freenode='emacs -g 100x70 --title freenode --eval "(freenode)" &'
 alias transadvice='emacs -g 100x70 --title transadvice --eval "(transadvice)" &'
 
@@ -54,11 +57,6 @@ alias pgstop='pg_ctl -D /usr/local/var/postgres stop'
 alias pgdn='pg_ctl -D /usr/local/var/postgres stop'
 alias pgstatus='pg_ctl -D /usr/local/var/postgres status'
 alias pgst='pg_ctl -D /usr/local/var/postgres status'
-
-# POSTGRESQL START AND STOP
-alias pgstart='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
-alias pgstop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
-alias pgstatus='pg_ctl -D /usr/local/var/postgres status'
 
 function tree () {
     /bin/ls -AR | grep ':$' | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'
