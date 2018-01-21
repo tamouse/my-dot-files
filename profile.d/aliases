@@ -50,6 +50,10 @@ alias irc='ssh tamouse.org'
 alias rs='rails server -b 0.0.0.0'
 
 alias s3sync='s3cmd -r --rexclude-from=$HOME/.s3sync-excludes sync '
+function s3archive() {
+    s3cmd -r --rexclude-from=$HOME/.s3sync-excludes sync "$1" "s3://tt-archive/$1"
+}
+
 
 alias pgstart='pg_ctl -D /usr/local/var/postgres start -l /usr/local/var/postgres/server.log'
 alias pgup='pg_ctl -D /usr/local/var/postgres start -l /usr/local/var/postgres/server.log'
