@@ -94,3 +94,6 @@ if [ -d ~/.bashrc.d ] ; then
     [ -x "$s" ] && source "$s"
     done
 fi
+
+# added by travis gem
+[ -f /Users/tamara.temple/.travis/travis.sh ] && source /Users/tamara.temple/.travis/travis.sh
