@@ -49,7 +49,7 @@ alias timestamp='date "+%Y-%m-%d-%H-%M-%S"'
 alias irc='ssh tamouse.org'
 alias rs='rails server -b 0.0.0.0'
 
-alias s3sync='s3cmd -r --rexclude-from=$HOME/.s3sync-excludes sync '
+alias s3sync='s3cmd -r --rexclude-from=$HOME/.s3sync-excludes --skip-existing sync '
 function s3archive() {
     s3cmd -r --rexclude-from=$HOME/.s3sync-excludes sync "$1" "s3://tt-archive/$1"
 }
