@@ -2,7 +2,7 @@
 	name = Tamara Temple
 	email = tamouse@gmail.com
 [core]
-	excludesfile = /Users/tamara/.gitignore_global
+	excludesfile = /Users/tamara/.my-dot-files/gitignore_global
 	autocrlf = input
 [color]
 	ui = true
@@ -22,3 +22,5 @@
 	aa = add --all
 	cim = commit --message
 	pufu = push -fu
+[commit]
+	template = /Users/tamara/.stCommitMsg
