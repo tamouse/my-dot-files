@@ -6,3 +6,5 @@
 
 
 eval $(docker-machine env default)
+
+alias docker-prune='docker system df && docker container prune && docker volume prune && docker system prune && docker system df'
