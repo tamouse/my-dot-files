@@ -131,3 +131,7 @@ function new_project() {
 
 
 alias ytdl='youtube-dl -f 18 -o "%(title)s-%(id)s.%(ext)s" -k -x --audio-format mp3 '
+
+
+# Robert Rouse's alias to keep systems clean
+alias docker-prune='docker system df && docker container prune && docker volume prune && docker system prune && docker system df'
