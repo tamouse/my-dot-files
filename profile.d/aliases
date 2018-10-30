@@ -21,14 +21,20 @@ fi
 
 alias sumacs='sudo emacs -nw -Q'
 
-alias freenode='emacs -g 100x70 --title freenode --eval "(freenode)" &'
-alias transadvice='emacs -g 100x70 --title transadvice --eval "(transadvice)" &'
-
-
 alias ls="$LSCMD -AFGh $LS_OPTS"
 alias ll="$LSCMD -AFGlh $LS_OPTS"
 alias l1="$LSCMD -1h $LS_OPTS"
 alias lm="$LSCMD -mh $LS_OPTS"
+
+alias grepc="grep --color=auto"
+alias grepcnr="grep --color=auto -nr"
+alias gcnr="grep --color=auto -nr"
+alias fgrepc="fgrep --color=auto"
+alias fgrepcnr="fgrep --color=auto -nr"
+alias fgcnr="fgrep --color=auto -nr"
+alias egrepc="egrep --color=auto"
+alias egrepcnr="egrep --color=auto -nr"
+alias egcnr="egrep --color=auto -nr"
 
 alias path='echo -e ${PATH//:/\\n}'
 alias now='date "+%T"'
@@ -46,8 +52,8 @@ alias phplintdir='for f in $(find . -name "*.php") ; do php -l "$f"; done'
 alias ping1='ping -c 1'
 alias timestamp='date "+%Y-%m-%d-%H-%M-%S"'
 
-alias irc='ssh tamouse.org'
-alias rs='rails server -b 0.0.0.0'
+alias irc='ssh shell'
+alias rs='bin/rails server -b 0.0.0.0'
 
 alias s3sync='s3cmd -r --rexclude-from=$HOME/.s3sync-excludes --skip-existing sync '
 function s3archive() {
@@ -111,13 +117,12 @@ function psgrep() {
 }
 
 alias clean_photos='for f in *; do chmod -x $f ; mv $f $(echo $f|tr "A-Z_" "a-z-"); done'
-alias rsysnx='rsync -avz --rexclude-from=$HOME/.rsync_excludes '
+alias rsyncx='rsync -avz --rexclude-from=$HOME/.rsync_excludes '
 
 alias log_action='echo "$(date "+%FT%T"): "'
 function dl() {
     echo $(date "+%FT%T") "$PWD" ':' "$@" >> $HOME/.dev.log
 }
-
 
 function new_project() {
     git init "$1" && \

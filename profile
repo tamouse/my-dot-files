@@ -36,3 +36,4 @@ if [ -n "$BASH_VERSION" ]; then
 	  . "$HOME/.bashrc"
   fi
 fi
+export PGDATA=/usr/local/var/postgresql@9.6/
