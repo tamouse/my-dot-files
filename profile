@@ -19,7 +19,8 @@ export EDITOR='emacsclient'
 export VISUAL=$EDITOR
 
 export ANDROID_HOME=$HOME/Library/Android/sdk
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home
+# Assumes a symbolic link to the actual
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8/Contents/Home
 export EMACS_ORG_PROTOCOL_PORT=9998
 
 # extra profile files
