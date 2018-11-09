@@ -17,10 +17,6 @@ export LC_COLLATE="en_US.UTF-8"
 export ORGANIZATION="Tamara Temple Web Development"
 export EDITOR='emacsclient'
 export VISUAL=$EDITOR
-
-export ANDROID_HOME=$HOME/Library/Android/sdk
-# Assumes a symbolic link to the actual
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8/Contents/Home
 export EMACS_ORG_PROTOCOL_PORT=9998
 
 # extra profile files
@@ -37,4 +33,7 @@ if [ -n "$BASH_VERSION" ]; then
 	  . "$HOME/.bashrc"
   fi
 fi
-export PGDATA=/usr/local/var/postgresql@9.6/
+
+if [ -d "/usr/local/var/postgresql@9.6"] ; then
+    export PGDATA=/usr/local/var/postgresql@9.6/
+fi
