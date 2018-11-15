@@ -34,6 +34,6 @@ if [ -n "$BASH_VERSION" ]; then
   fi
 fi
 
-if [ -d "/usr/local/var/postgresql@9.6"] ; then
+if [ -d "/usr/local/var/postgresql@9.6" ] ; then
     export PGDATA=/usr/local/var/postgresql@9.6/
 fi
