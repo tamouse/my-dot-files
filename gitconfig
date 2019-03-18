@@ -23,3 +23,5 @@
 	cim = commit --message
 	pufu = push -fu
 [commit]
+[commit]
+	template = /Users/tamara/.stCommitMsg
