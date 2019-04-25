@@ -30,6 +30,10 @@ alias grls='git remote -v'
 alias gs='git status'
 alias gorg='git remote -v|grep origin|grep push|cut -f2|cut -d" " -f1""'
 
+# See https://stackoverflow.com/questions/13064613/how-to-prune-local-tracking-branches-that-do-not-exist-on-remote-anymore
+alias gitprunebranches='git branch -r | awk "{print $1}" | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk "{print $1}" | xargs git branch -d'
+
+
 # the one command to do them all!
 # Usage: gacp 'commit message to use'
 gacp () {
