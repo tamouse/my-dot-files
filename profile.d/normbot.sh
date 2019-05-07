@@ -4,4 +4,4 @@ alias nbb='echo -n @norm ecs build production $(git rev-parse --symbolic-full-na
 alias ndb='echo -n @norm ecs deploy production $(git rev-parse --symbolic-full-name --abbrev-ref HEAD)|pbcopy'
 alias nndw='echo -n @norm no deploy ecs worker|pbcopy'
 alias ndm='echo -n @norm ecs deploy production master|pbcopy'
-alias nydw='echo -n @norm  deploy ecs worker|pbcopy'
+alias nydw='echo -n @norm yes deploy ecs worker|pbcopy'
