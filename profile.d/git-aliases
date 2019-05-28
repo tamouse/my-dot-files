@@ -4,6 +4,7 @@ alias ci='git add --all -v && git commit -m '
 alias co='git checkout'
 alias gaa='git add --all -v'
 alias gb='git branch'
+alias gbgrep='git branch | sed "s/^..//"|grep'
 alias gbls='git branch -av'
 # Deprecated: alias gbname='git branch -v|grep -e '^\*'|cut -f1|cut -d" " -f2'
 # Better, from commandlinefu:
