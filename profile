@@ -37,3 +37,7 @@ fi
 if [ -d "/usr/local/var/postgresql@9.6" ] ; then
     export PGDATA=/usr/local/var/postgresql@9.6/
 fi
+
+
+# Show if the zoom auto-opener is running
+lsof -i :19421
