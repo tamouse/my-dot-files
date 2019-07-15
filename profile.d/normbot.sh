@@ -10,4 +10,5 @@ alias nydw='echo -n @norm yes deploy ecs worker|pbcopy'
 
 alias nbsb='echo -n @norm ecs build staging $(git rev-parse --symbolic-full-name --abbrev-ref HEAD)|pbcopy'
 alias ndsb='echo -n @norm ecs deploy staging $(git rev-parse --symbolic-full-name --abbrev-ref HEAD)|pbcopy'
+alias nbsd='echo -n @norm ecs build staging develop|pbcopy'
 alias ndsd='echo -n @norm ecs deploy staging develop|pbcopy'
