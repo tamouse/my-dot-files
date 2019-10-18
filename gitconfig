@@ -22,5 +22,11 @@
 	aa = add --all
 	cim = commit --message
 	pufu = push -fu
+	difnam = diff --name-only
+	difnmst = diff --name-status
+	co = checkout
+	ci = commit
+	dryrun = merge --no-commit --no-ff --no-edit
+	cine = commit --no-edit
 [commit]
 [commit]
