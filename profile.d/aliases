@@ -124,17 +124,6 @@ function dl() {
     echo $(date "+%FT%T") "$PWD" ':' "$@" >> $HOME/.dev.log
 }
 
-function new_project() {
-    git init "$1" && \
-	pushd "$1" && \
-	echo "$2" | tee README.txt | tee .git/description | pbcopy && \
-	echo "/node_modules/" >> .gitignore && \
-	hub create -d "$2" && \
-	yarn init && \
-	gacp initial
-}
-
-
 alias ytdl='youtube-dl -f 18 -o "%(title)s-%(id)s.%(ext)s" -k -x --audio-format mp3 '
 
 
