@@ -5,6 +5,7 @@ alias ndb='echo -n @norm ecs deploy production $(git rev-parse --symbolic-full-n
 alias nndw='echo -n @norm no deploy ecs worker|pbcopy'
 alias ndm='echo -n @norm ecs deploy production master|pbcopy'
 alias nydw='echo -n @norm yes deploy ecs worker|pbcopy'
+alias nodbm="echo -n '@norm ecs oneoff production master (bundle exec rails db:migrate)'|pbcopy"
 
 # NOW WITH STAGING, TOO!
 
