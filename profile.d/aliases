@@ -25,7 +25,7 @@ alias ls="$LSCMD -AFGh $LS_OPTS"
 alias ll="$LSCMD -AFGlh $LS_OPTS"
 alias l1="$LSCMD -1h $LS_OPTS"
 alias lm="$LSCMD -mh $LS_OPTS"
-
+alias lld="find -s . -mindepth 1 -maxdepth 1 -type d -print0 | xargs -0 $LSCMD -AFhld $LS_OPTS; find -s . -mindepth 1 -maxdepth 1 \! -type d -print0 | xargs -0 $LSCMD -AFhl $LS_OPTS"
 alias grepc="grep --color=auto"
 alias grepcnr="grep --color=auto -nr"
 alias gcnr="grep --color=auto -nr"
