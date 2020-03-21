@@ -5,27 +5,32 @@ alias mv='mv -v'
 alias cp='cp -v'
 alias rm='rm -v'
 alias tac="tail -r "
-alias e='emacsclient'
-alias ec='emacsclient -a "" -c -n'
+
+alias e='emacsclient -a emacs'
+alias ec='emacsclient -a emacs -c'
+alias ecn='emacsclient -a emacs -c -n'
+
 alias eject='diskutil eject'
 
 export LSCMD=$(which ls)
 system_type=`uname`
 if [ "$system_type" == "Darwin" ] ; then
     export LS_OPTS="-G"
-    alias EMACS='open -a Emacs --args -g 200x70'
 else
     export LS_OPTS="--color=auto"
-    alias EMACS=emacs
 fi
 
 alias sumacs='sudo emacs -nw -Q'
 
-alias ls="$LSCMD -AFGh $LS_OPTS"
-alias ll="$LSCMD -AFGlh $LS_OPTS"
+alias ls="$LSCMD -AFh $LS_OPTS"
+alias ll="$LSCMD -AFlh $LS_OPTS"
 alias l1="$LSCMD -1h $LS_OPTS"
 alias lm="$LSCMD -mh $LS_OPTS"
+
+# Show me the dotfiles, bruh
 alias lld="find -s . -mindepth 1 -maxdepth 1 -type d -print0 | xargs -0 $LSCMD -AFhld $LS_OPTS; find -s . -mindepth 1 -maxdepth 1 \! -type d -print0 | xargs -0 $LSCMD -AFhl $LS_OPTS"
+
+# a grepency, we love colour
 alias grepc="grep --color=auto"
 alias grepcnr="grep --color=auto -nr"
 alias gcnr="grep --color=auto -nr"
@@ -46,31 +51,13 @@ alias openip6='lsof -Pnl +M -i6' # open IPv6 connections
 
 alias cpan='cpanm'
 
-alias phplint='php -l'
-alias phplintdir='for f in $(find . -name "*.php") ; do php -l "$f"; done'
-
 alias ping1='ping -c 1'
 alias timestamp='date "+%Y-%m-%d-%H-%M-%S"'
 
-alias irc='ssh shell'
-alias rs='bin/rails server -b 0.0.0.0'
+alias rsyncx='rsync -avz --rexclude-from=$HOME/.rsync_excludes '
 
-alias s3sync='s3cmd -r --rexclude-from=$HOME/.s3sync-excludes --skip-existing sync '
-function s3archive() {
-    s3cmd -r --rexclude-from=$HOME/.s3sync-excludes --skip-existing sync "$1" "s3://tt-archive/$1"
-}
-
-
-alias pgstart='pg_ctl -D /usr/local/var/postgres start -l /usr/local/var/postgres/server.log'
-alias pgup='pg_ctl -D /usr/local/var/postgres start -l /usr/local/var/postgres/server.log'
-alias pgstop='pg_ctl -D /usr/local/var/postgres stop'
-alias pgdn='pg_ctl -D /usr/local/var/postgres stop'
-alias pgstatus='pg_ctl -D /usr/local/var/postgres status'
-alias pgst='pg_ctl -D /usr/local/var/postgres status'
-
-alias mongup='mongod --config /usr/local/etc/mongod.conf'
-alias mongdn='echo "Use db.shutdownSever() from mongo cli" && echo "See https://docs.mongodb.com/manual/tutorial/manage-mongodb-processes/#use-shutdownserver"'
-alias mongst='mongostat'
+alias log_action='echo "$(date "+%FT%T"): "'
+alias ytdl='youtube-dl -f 18 -o "%(title)s-%(id)s.%(ext)s" -k -x --audio-format mp3 '
 
 function tree () {
     /bin/ls -AR | grep ':$' | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'
@@ -116,16 +103,8 @@ function psgrep() {
     ps auxww | grep -v grep | grep --color=auto -E "(^USER|$*)"
 }
 
-alias clean_photos='for f in *; do chmod -x $f ; mv $f $(echo $f|tr "A-Z_" "a-z-"); done'
-alias rsyncx='rsync -avz --rexclude-from=$HOME/.rsync_excludes '
 
-alias log_action='echo "$(date "+%FT%T"): "'
 function dl() {
     echo $(date "+%FT%T") "$PWD" ':' "$@" >> $HOME/.dev.log
 }
 
-alias ytdl='youtube-dl -f 18 -o "%(title)s-%(id)s.%(ext)s" -k -x --audio-format mp3 '
-
-
-# Robert Rouse's alias to keep systems clean
-alias docker-prune='docker system df && docker container prune && docker volume prune && docker system prune && docker system df'

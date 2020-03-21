@@ -9,8 +9,11 @@ alias gbls='git branch -av'
 # Deprecated: alias gbname='git branch -v|grep -e '^\*'|cut -f1|cut -d" " -f2'
 # Better, from commandlinefu:
 alias gbname='git rev-parse --symbolic-full-name --abbrev-ref HEAD'
+alias gbn='git rev-parse --symbolic-full-name --abbrev-ref HEAD'
 alias gcl='git clone'
 alias gcm='git commit -m'
+alias gci='git commit' 		# will launch core.editor to write out the message
+alias gcine='git commit --no-edit'
 alias gco='git checkout'
 alias gcom='git checkout master'
 alias gcob='git checkout -b'
@@ -31,13 +34,15 @@ alias gorg='git remote -v|grep origin|grep push|cut -f2|cut -d" " -f1""'
 alias gpl='git pull'
 alias gploh='git pull origin HEAD'
 alias gps='git push'
+alias gpsoh='git push -u origin HEAD'
+
 alias gpsfoh='git push -fu origin HEAD'
 alias gpsfuoh='git push -fu origin HEAD'
-alias gpsoh='git push -u origin HEAD'
+alias pufu='git push -fu origin HEAD'
+
 alias gr='git remote'
 alias grls='git remote -v'
 alias gs='git status'
-alias pufu='git push -fu origin HEAD'
 
 # See https://stackoverflow.com/questions/13064613/how-to-prune-local-tracking-branches-that-do-not-exist-on-remote-anymore
 alias gitprunebranches='git branch -r | awk "{print $1}" | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk "{print $1}" | xargs git branch -d'

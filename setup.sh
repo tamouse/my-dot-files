@@ -24,7 +24,6 @@ mv $HOME/.bash_profile \
    $HOME/.profile \
    $HOME/.profile.d \
    $HOME/.pryrc \
-   $HOME/.railsrc \
    $SAVE_DIR
 
 echo "Linking files from $PWD into $HOME"
@@ -40,8 +39,6 @@ ln -fs $PWD/hosts $HOME/.hosts
 ln -fs $PWD/profile $HOME/.profile
 ln -fs $PWD/profile.d $HOME/.profile.d
 ln -fs $PWD/pryrc $HOME/.pryrc
-
-sed <$PWD/railsrc >$HOME/.railsrc -e "s|\$HOME|$HOME|g"
 
 /bin/ls -dAl $HOME/.[a-zA-Z]*
 

@@ -4,8 +4,8 @@
 #     docker-machine restart
 #
 
-
 eval $(docker-machine env default)
 
 # Robert Rouse's alias to keep systems clean
 alias docker-prune='docker system df && docker container prune && docker volume prune && docker system prune && docker system df'
+

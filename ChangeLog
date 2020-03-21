@@ -1,0 +1,6 @@
+2020-03-21  Tamara Temple  <tamouse@gmail.com>
+
+	* profile.d/git-aliases: a little cleanup, additions
+
+	* setup.sh: remove railsrc stuff - let that get managed elsewhere
+
