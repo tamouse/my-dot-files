@@ -10,6 +10,8 @@ alias e='emacsclient -a emacs'
 alias ec='emacsclient -a emacs -c'
 alias ecn='emacsclient -a emacs -c -n'
 
+alias by='bundle && yarn'
+
 alias eject='diskutil eject'
 
 export LSCMD=$(which ls)
