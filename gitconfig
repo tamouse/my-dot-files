@@ -4,7 +4,7 @@
 [core]
 	excludesfile = /Users/tamara/.my-dot-files/gitignore_global
 	autocrlf = input
-	editor = emacsclient -a \"\" -c
+	editor = emacsclient -a \"\"
 [color]
 	ui = true
 [push]
