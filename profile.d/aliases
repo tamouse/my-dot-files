@@ -6,9 +6,10 @@ alias cp='cp -v'
 alias rm='rm -v'
 alias tac="tail -r "
 
-alias e='emacsclient -a emacs'
-alias ec='emacsclient -a emacs -c'
-alias ecn='emacsclient -a emacs -c -n'
+alias e='emacsclient -a "" -c'
+alias ec='emacsclient -a "" -c'
+alias en='emacsclient -a "" -c -n'
+alias ecn='emacsclient -a "" -c -n'
 
 alias by='bundle && yarn'
 
