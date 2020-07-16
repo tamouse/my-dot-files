@@ -1,8 +1,8 @@
 [user]
 	name = Tamara Temple
-	email = tamouse@gmail.com
+	email = tamara.temple@drip.com
 [core]
-	excludesfile = /Users/tamara/.my-dot-files/gitignore_global
+	excludesfile = /Users/ttemple/.gitignore_global
 	autocrlf = input
 	editor = emacsclient -a \"\"
 [color]
@@ -29,5 +29,3 @@
 	ci = commit
 	dryrun = merge --no-commit --no-ff --no-edit
 	cine = commit --no-edit
-[commit]
-[commit]
