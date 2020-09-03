@@ -2,8 +2,10 @@
 
 alias ci='git add --all -v && git commit -m '
 alias co='git checkout'
+alias ga='git add -v'
 alias gaa='git add --all -v'
 alias gb='git branch'
+alias gbg='git branch | sed "s/^..//"|grep'
 alias gbgrep='git branch | sed "s/^..//"|grep'
 alias gbls='git branch -av'
 # Deprecated: alias gbname='git branch -v|grep -e '^\*'|cut -f1|cut -d" " -f2'
@@ -18,6 +20,8 @@ alias gco='git checkout'
 alias gcom='git checkout master'
 alias gcob='git checkout -b'
 alias gd='git diff'
+alias gdno='git diff --name-only'
+alias gdns='git diff --name-stat'
 alias gf='git fetch'
 alias gfp='git fetch -p'
 alias gl='git log'
@@ -32,6 +36,7 @@ alias gmdr='git merge --no-commit --no-ff --no-edit' # dry run; follow up with `
 alias gmm='git merge --no-edit master'
 alias gorg='git remote -v|grep origin|grep push|cut -f2|cut -d" " -f1""'
 alias gpl='git pull'
+alias gplom='git pull origin master'
 alias gploh='git pull origin HEAD'
 alias gps='git push'
 alias gpsoh='git push -u origin HEAD'
@@ -59,6 +64,6 @@ alias gyolo='git add --all && git commit -m $(date "+YOLO.%FT%T") && git push -f
 grurl () {
     xx_remote=$1
     [ -z "$xx_remote" ] && xx_remote=origin
-    git remote --verbose | grep "$1" | grep fetch | cut -f2 | cut -d' ' -f1
+    git remote --verbose | grep "$xx_remote" | grep fetch | cut -f2 | cut -d' ' -f1
     unset xx_remote
 }
