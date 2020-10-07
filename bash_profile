@@ -4,6 +4,3 @@
 # $HOME/.profile and put everything there.
 
 source $HOME/.profile
-
-source /Users/ttemple/.drv/bin/bash_profile
-drinit -i d
