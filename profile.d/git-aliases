@@ -22,6 +22,7 @@ alias gcob='git checkout -b'
 alias gd='git diff'
 alias gdno='git diff --name-only'
 alias gdns='git diff --name-stat'
+alias gdry='git merge --no-commit --no-ff --no-edit'
 alias gf='git fetch'
 alias gfp='git fetch -p'
 alias gl='git log'
@@ -48,6 +49,10 @@ alias pufu='git push -fu origin HEAD'
 alias gr='git remote'
 alias grls='git remote -v'
 alias gs='git status'
+
+# give an empty commit in order to start up a reluctant CI system. Hat tip Dustin Grange.
+alias trigger_build='git commit --allow-empty -m "Trigger build"'
+
 
 # See https://stackoverflow.com/questions/13064613/how-to-prune-local-tracking-branches-that-do-not-exist-on-remote-anymore
 alias gitprunebranches='git branch -r | awk "{print $1}" | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk "{print $1}" | xargs git branch -d'
