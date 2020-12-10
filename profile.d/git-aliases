@@ -72,3 +72,15 @@ grurl () {
     git remote --verbose | grep "$xx_remote" | grep fetch | cut -f2 | cut -d' ' -f1
     unset xx_remote
 }
+
+sync_with_master () {
+    current_branch=`git rev-parse --symbolic-full-name --abbrev-ref HEAD`
+    git checkout master
+    git pull origin master
+    git checkout $current_branch
+    git merge --no-commit --no-ff --no-edit master
+    git status
+    unset current_branch
+}
+
+alias gswm='sync_with_master'
