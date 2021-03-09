@@ -3,6 +3,7 @@
 # Lots of these can also be put under the bin/ folder in a project
 # using `bundle binstub <gemname>`
 
+alias b="bundle"
 alias be="bundle exec"
 alias brake="bundle exec rake"
 alias bguard="bundle exec guard"
@@ -10,6 +11,8 @@ alias bc="bundle console"
 alias br="bin/rails"
 alias brc="bin/rails console"
 alias brdc="bin/rails db"
+alias brdms="bin/rails db:migrate:status"
+alias brdm="bin/rails db:migrate"
 alias brr="bin/rails runner"
 alias brs="bin/rails s"
 alias brspec='bundle exec rspec -f d -c --fail-fast --order=defined'
@@ -21,4 +24,4 @@ alias brmig='bin/rails db:migrate'
 alias brsclo='bin/rails db:schema:load'
 alias brseed='bin/rails db:seed'
 alias brdtp='bin/rails db:test:prepare'
-alias brt='bin/rails test '
+alias brt='bin/rails test --verbose --fail-fast --seed=1000 '
