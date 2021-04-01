@@ -2,7 +2,7 @@
 
 if [ -d $HOME/.drv ]; then
     export PATH=$PATH:$HOME/.drv/bin
-    source $HOME/.drv/share/foundation-tools/bash_profile
+    [ -f "$HOME/.drv/share/foundation-tools/bash_profile" ] && source $HOME/.drv/share/foundation-tools/bash_profile
 
     # drip only akliases
     alias .d="pushd $HOME/Work/Drip/drip/"
