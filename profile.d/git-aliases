@@ -52,6 +52,8 @@ alias pufu='git push -fu origin HEAD'
 
 alias gr='git remote'
 alias grls='git remote -v'
+alias grst='git restore'
+alias grstst='git restore db/structure.sql'
 alias gs='git status'
 
 # give an empty commit in order to start up a reluctant CI system. Hat tip Dustin Grange.
