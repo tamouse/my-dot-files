@@ -1,11 +1,10 @@
 #!/bin/sh
 
-alias ci='git add --all -v && git commit -m '
+alias ci='git add --all -v && git commit'
 alias co='git checkout'
 alias ga='git add -v'
 alias gaa='git add --all -v'
 alias gb='git branch'
-alias gbd='git branch -D '
 alias gbg='git branch | sed "s/^..//"|grep'
 alias gbgrep='git branch | sed "s/^..//"|grep'
 alias gbls='git branch -av'
@@ -19,7 +18,7 @@ alias gcm='git commit -m'
 alias gci='git commit' 		# will launch core.editor to write out the message
 alias gcine='git commit --no-edit'
 alias gco='git checkout'
-alias gcom='git checkout master'
+alias gcom='git checkout main'
 alias gcob='git checkout -b'
 alias gd='git diff'
 alias gdno='git diff --name-only'
@@ -38,10 +37,11 @@ alias gloh='git log --oneline --decorate | head'
 alias gls='git ls-files'
 alias gm='git merge --no-edit'
 alias gmdr='git merge --no-commit --no-ff --no-edit' # dry run; follow up with `git merge --abort`
-alias gmm='git merge --no-edit master'
+alias gmm='git merge --no-edit main'
 alias gorg='git remote -v|grep origin|grep push|cut -f2|cut -d" " -f1""'
 alias gpl='git pull'
-alias gplom='git pull origin master'
+alias gplo='git pull origin'
+alias gplom='git pull origin main'
 alias gploh='git pull origin HEAD'
 alias gps='git push'
 alias gpsoh='git push -u origin HEAD'
@@ -55,6 +55,9 @@ alias grls='git remote -v'
 alias grst='git restore'
 alias grstst='git restore db/structure.sql'
 alias gs='git status'
+
+alias migrate="bin/rails db:migrate"
+alias rollback="bin/rails db:rollback" # STEP=n
 
 # give an empty commit in order to start up a reluctant CI system. Hat tip Dustin Grange.
 alias trigger_build='git commit --allow-empty -m "Trigger build"'
@@ -79,14 +82,14 @@ grurl () {
     unset xx_remote
 }
 
-sync_with_master () {
+sync_with_main () {
     current_branch=`git rev-parse --symbolic-full-name --abbrev-ref HEAD`
-    git checkout master
-    git pull origin master
+    git checkout main
+    git pull origin main
     git checkout $current_branch
-    git merge --no-commit --no-ff --no-edit master
+    git merge --no-commit --no-ff --no-edit main
     git status
     unset current_branch
 }
 
-alias gswm='sync_with_master'
+alias gswm='sync_with_main'
