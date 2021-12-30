@@ -13,8 +13,13 @@ if [ -d $HOME/.drv ]; then
     alias .dripelm="pushd $HOME/Work/Drip/drip-elm/"
     alias .dripships="pushd $HOME/Work/Drip/dripships.github.io/"
     alias .ds="pushd $HOME/Work/Drip/dripships.github.io/"
+    alias .dui="pushd $HOME/Work/Drip/ui-components/"
     alias .dw="pushd $HOME/Work/Drip/drip.wiki/"
     alias .dx="pushd $HOME/Work/Drip/"
+
+    # speed up drsh
+    alias .neb="drsh -ra nebulous"
+    alias .ro="drsh -ra readonly"
 
 else
     echo "No $HOME/.drv directory, not setting up or installing drip foundation tools"
