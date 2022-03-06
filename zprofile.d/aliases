@@ -1,0 +1,110 @@
+# -*- mode: shell-script -*-
+
+# make standard file manipulation commands verbose
+alias mv='mv -v'
+alias cp='cp -v'
+alias rm='rm -v'
+alias tac="tail -r "
+
+alias e='emacsclient -a "" -c'
+alias ec='emacsclient -a "" -c'
+alias en='emacsclient -a "" -c -n'
+alias ecn='emacsclient -a "" -c -n'
+
+alias by='bundle && yarn'
+
+alias eject='diskutil eject'
+
+export LSCMD=$(which ls)
+export LS_OPTS=""
+alias ls="$LSCMD -AFh $LS_OPTS"
+alias ll="$LSCMD -AFlh $LS_OPTS"
+alias l1="$LSCMD -1h $LS_OPTS"
+alias lm="$LSCMD -mh $LS_OPTS"
+
+# Show me the dotfiles, bruh
+alias lld="find -s . -mindepth 1 -maxdepth 1 -type d -print0 | xargs -0 $LSCMD -AFhld $LS_OPTS; find -s . -mindepth 1 -maxdepth 1 \! -type d -print0 | xargs -0 $LSCMD -AFhl $LS_OPTS"
+
+# a grepency, we love colour
+alias grepc="grep --color=auto -i"
+alias grepcnr="grep --color=auto -inr"
+alias gcnr="grep --color=auto -inr"
+alias fgrepc="fgrep --color=auto"
+alias fgrepcnr="fgrep --color=auto -nr"
+alias fgcnr="fgrep --color=auto -nr"
+alias egrepc="egrep --color=auto"
+alias egrepcnr="egrep --color=auto -nr"
+alias egcnr="egrep --color=auto -nr"
+
+alias path='echo -e ${PATH//:/\\n}'
+alias now='date "+%T"'
+
+alias ports='netstat -tulanp'
+alias openip='lsof -Pnl +M' # open IP connections (4 or 6)
+alias openip4='lsof -Pnl +M -i4' # open IPv4 connections
+alias openip6='lsof -Pnl +M -i6' # open IPv6 connections
+
+alias cpan='cpanm'
+
+alias ping1='ping -c 1'
+alias timestamp='date "+%Y-%m-%d-%H-%M-%S"'
+
+alias rsyncx='rsync -avz --rexclude-from=$HOME/.rsync_excludes '
+
+alias sumacs='sudo emacs -nw -Q'
+
+alias log_action='echo "$(date "+%FT%T"): "'
+alias ytdl='youtube-dl -f 18 -o "%(title)s-%(id)s.%(ext)s" -k -x --audio-format mp3 '
+
+alias xcops='xargs bin/rubocop'
+alias xcopsa='xargs bin/rubocop -a'
+alias xcopsaa='xargs bin/rubocop -A'
+
+function tree () {
+    /bin/ls -AR | grep ':$' | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'
+}
+
+# replace spaces in file names with underscores
+function unspace_filename () {
+    echo "$1" | tr --squeeze-repeats " " "_"
+}
+
+# lowercase file names
+function lc_filename () {
+    echo "$1" | tr '[:upper:]' '[:lower:]'
+}
+
+# clean file name: lower case, no spaces, alphanumeric plus _-+. only
+function clean_filename () {
+    echo "$1" | perl -p -e 'chomp;s/\s+/_/g;s/[^[:alnum:]_+\.-]*//g;lc;'
+}
+
+# find diff between backup and current files in pwd after a filtering operation
+function diffbak () {
+    for f in *.bak ; do
+	diff "${f%%.bak}" "$f"
+    done
+}
+
+# push back original files in pwd after filtering operation
+function restore () {
+    for f in *.bak ; do
+	mv -v "$f" "${f%%.bak}"
+    done
+}
+
+# rename old files in pwd with new extension
+function rename_all () {
+    for f in *.$1 ; do
+	mv "$f" "${f%%.$1}.$2"
+    done
+}
+
+function psgrep() {
+    ps auxww | grep -v grep | grep --color=auto -E "(^USER|$*)"
+}
+
+
+function dl() {
+    echo $(date "+%FT%T") "$PWD" ':' "$@" >> $HOME/.dev.log
+}

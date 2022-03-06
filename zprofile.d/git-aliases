@@ -1,0 +1,95 @@
+# -*- mode: shell-script -*-
+
+alias ci='git add --all -v && git commit'
+alias co='git checkout'
+alias ga='git add -v'
+alias gaa='git add --all -v'
+alias gb='git branch'
+alias gbg='git branch | sed "s/^..//"|grep'
+alias gbgrep='git branch | sed "s/^..//"|grep'
+alias gbls='git branch -av'
+alias gbv='git branch -av'
+# Deprecated: alias gbname='git branch -v|grep -e '^\*'|cut -f1|cut -d" " -f2'
+# Better, from commandlinefu:
+alias gbname='git rev-parse --symbolic-full-name --abbrev-ref HEAD'
+alias gbn='git rev-parse --symbolic-full-name --abbrev-ref HEAD'
+alias gcl='git clone'
+alias gcm='git commit -m'
+alias gci='git commit' 		# will launch core.editor to write out the message
+alias gcine='git commit --no-edit'
+alias gco='git checkout'
+alias gcom='git checkout main'
+alias gcob='git checkout -b'
+alias gd='git diff'
+alias gdno='git diff --name-only'
+alias gdnoc='git diff --name-only --cached'
+alias gdns='git diff --name-stat'
+alias gdnsc='git diff --name-stat --cached'
+alias gdry='git merge --no-commit --no-ff --no-edit'
+alias gf='git fetch'
+alias gfp='git fetch -p'
+alias gl='git log'
+alias glg='git log --graph --pretty=format":%C(yellow)%h%Cblue%d%Creset %s %C(white) %an,%ar%Creset" --abbrev-commit --decorate'
+alias glgh='git log --graph --pretty=format":%C(yellow)%h%Cblue%d%Creset %s %C(white) %an,%ar%Creset" --abbrev-commit --decorate | head'
+alias glo='git log --oneline --decorate'
+alias glog='git log'
+alias gloh='git log --oneline --decorate | head'
+alias gls='git ls-files'
+alias gm='git merge --no-edit'
+alias gmdr='git merge --no-commit --no-ff --no-edit' # dry run; follow up with `git merge --abort`
+alias gmm='git merge --no-edit main'
+alias gorg='git remote -v|grep origin|grep push|cut -f2|cut -d" " -f1""'
+alias gpl='git pull'
+alias gplo='git pull origin'
+alias gplom='git pull origin main'
+alias gploh='git pull origin HEAD'
+alias gps='git push'
+alias gpsoh='git push -u origin HEAD'
+
+alias gpsfoh='git push -fu origin HEAD'
+alias gpsfuoh='git push -fu origin HEAD'
+alias pufu='git push -fu origin HEAD'
+
+alias gr='git remote'
+alias grls='git remote -v'
+alias grst='git restore'
+alias grstst='git restore db/structure.sql'
+alias gs='git status'
+
+alias migrate="bin/rails db:migrate"
+alias rollback="bin/rails db:rollback" # STEP=n
+
+# give an empty commit in order to start up a reluctant CI system. Hat tip Dustin Grange.
+alias trigger_build='git commit --allow-empty -m "Trigger build"'
+
+
+# See https://stackoverflow.com/questions/13064613/how-to-prune-local-tracking-branches-that-do-not-exist-on-remote-anymore
+alias gitprunebranches='git branch -r | awk "{print $1}" | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk "{print $1}" | xargs git branch -d'
+
+
+# the one command to do them all!
+# Usage: gacp 'commit message to use'
+gacp () {
+    git add --all -v && git commit -m "$1" && git push -u origin HEAD
+}
+
+alias gyolo='git add --all && git commit -m $(date "+YOLO.%FT%T") && git push -fu origin HEAD'
+
+grurl () {
+    xx_remote=$1
+    [ -z "$xx_remote" ] && xx_remote=origin
+    git remote --verbose | grep "$xx_remote" | grep fetch | cut -f2 | cut -d' ' -f1
+    unset xx_remote
+}
+
+sync_with_main () {
+    current_branch=`git rev-parse --symbolic-full-name --abbrev-ref HEAD`
+    git checkout main
+    git pull origin main
+    git checkout $current_branch
+    git merge --no-commit --no-ff --no-edit main
+    git status
+    unset current_branch
+}
+
+alias gswm='sync_with_main'
