@@ -14,7 +14,7 @@ export EMACS_ORG_PROTOCOL_PORT=9998
 # extra profile files
 if [ -d ~/.zprofile.d ] ; then
   for s in $(find ~/.zprofile.d/ -type f | grep -v '~$') ; do
-    [ -x "$s" ] && echo "Sourcing $s" && source "$s"
+    [ -x "$s" ] && source "$s"
   done
 fi
 
