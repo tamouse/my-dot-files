@@ -17,6 +17,9 @@ if [ -d $HOME/.drv ]; then
     alias .dw="pushd $HOME/Work/Drip/drip.wiki/"
     alias .dx="pushd $HOME/Work/Drip/"
 
+    alias .ca="pushd $HOME/Work/Drip/ConsAn/consumer-analytics/"
+    alias .caw="pushd $HOME/Work/Drip/ConsAn/consumer-analytics.wiki/"
+
     # speed up drsh
     alias .neb="drsh -ra nebulous"
     alias .ro="drsh -ra readonly"
@@ -24,3 +27,14 @@ if [ -d $HOME/.drv ]; then
 else
     echo "No $HOME/.drv directory, not setting up or installing drip foundation tools"
 fi
+
+# Drip docker reader
+alias dc="docker-compose"
+alias dcu="docker-compose up"
+alias dcub="docker-compose up --build"
+alias dce="docker-compose exec"
+alias dcer="docker-compose exec reader"
+alias dcerc="docker-compose exec reader bin/rails c"
+alias dcert="docker-compose exec reader bin/rails test"
+alias dcers="docker-compose exec reader /bin/sh"
+alias dcr="docker-compose run"
