@@ -15,6 +15,7 @@ mkdir -p $SAVE_DIR
 echo "Saving current files in $SAVE_DIR"
 mv $HOME/.bash_profile \
    $HOME/.bashrc \
+   $HOME/.zshrc \
    $HOME/.bashrc.d \
    $HOME/.gitconfig \
    $HOME/.gitignore_global \
@@ -22,7 +23,9 @@ mv $HOME/.bash_profile \
    $HOME/.guard.rb \
    $HOME/.hosts \
    $HOME/.profile \
+   $HOME/.zprofile \
    $HOME/.profile.d \
+   $HOME/.zprofile.d \
    $HOME/.pryrc \
    $SAVE_DIR
 
@@ -30,6 +33,7 @@ echo "Linking files from $PWD into $HOME"
 set -e
 ln -fs $PWD/bash_profile $HOME/.bash_profile
 ln -fs $PWD/bashrc $HOME/.bashrc
+ln -fs $PWD/zshrc $HOME/.zshrc
 ln -fs $PWD/bashrc.d $HOME/.bashrc.d
 ln -fs $PWD/gitconfig $HOME/.gitconfig
 ln -fs $PWD/gitignore_global $HOME/.gitignore_global
@@ -37,9 +41,9 @@ ln -fs $PWD/gradle.properties $HOME/.gradle.properties
 ln -fs $PWD/guard.rb $HOME/.guard.rb
 ln -fs $PWD/hosts $HOME/.hosts
 ln -fs $PWD/profile $HOME/.profile
+ln -fs $PWD/zprofile $HOME/.zprofile
 ln -fs $PWD/profile.d $HOME/.profile.d
+ln -fs $PWD/zprofile.d $HOME/.zprofile.d
 ln -fs $PWD/pryrc $HOME/.pryrc
-
-/bin/ls -dAl $HOME/.[a-zA-Z]*
 
 echo "Log out and log in again to ensure everything is in it's place."

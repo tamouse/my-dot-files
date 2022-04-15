@@ -1,4 +1,4 @@
-#!/bin/sh
+# -*- mode: shell-script -*-
 
 # Lots of these can also be put under the bin/ folder in a project
 # using `bundle binstub <gemname>`

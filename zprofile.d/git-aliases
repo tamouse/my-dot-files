@@ -1,4 +1,4 @@
-#!/bin/sh
+# -*- mode: shell-script -*-
 
 alias ci='git add --all -v && git commit'
 alias co='git checkout'

@@ -1,3 +1,5 @@
+# -*- mode: shell-script -*-
+
 : ${ANDROID_HOME:=$HOME/Library/Android/sdk}
 
 # Assumes a symbolic link to the actual:

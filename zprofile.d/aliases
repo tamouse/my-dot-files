@@ -1,30 +1,24 @@
-#!/bin/sh
+# -*- mode: shell-script -*-
 
 # make standard file manipulation commands verbose
 alias mv='mv -v'
 alias cp='cp -v'
 alias rm='rm -v'
 alias tac="tail -r "
+alias .-="pushd "
+alias .--="popd "
 
-alias e='emacsclient -a "" -c'
+alias e='emacsclient -a ""'
 alias ec='emacsclient -a "" -c'
-alias en='emacsclient -a "" -c -n'
+alias en='emacsclient -a "" -n'
 alias ecn='emacsclient -a "" -c -n'
 
 alias by='bundle && yarn'
 
 alias eject='diskutil eject'
 
-export LSCMD=$(which ls)
-system_type=`uname`
-if [ "$system_type" == "Darwin" ] ; then
-    export LS_OPTS="-G"
-else
-    export LS_OPTS="--color=auto"
-fi
-
-alias sumacs='sudo emacs -nw -Q'
-
+export LSCMD=$(command -v ls)
+export LS_OPTS=""
 alias ls="$LSCMD -AFh $LS_OPTS"
 alias ll="$LSCMD -AFlh $LS_OPTS"
 alias l1="$LSCMD -1h $LS_OPTS"
@@ -34,17 +28,20 @@ alias lm="$LSCMD -mh $LS_OPTS"
 alias lld="find -s . -mindepth 1 -maxdepth 1 -type d -print0 | xargs -0 $LSCMD -AFhld $LS_OPTS; find -s . -mindepth 1 -maxdepth 1 \! -type d -print0 | xargs -0 $LSCMD -AFhl $LS_OPTS"
 
 # a grepency, we love colour
-alias grepc="grep --color=auto -i"
-alias grepcnr="grep --color=auto -inr"
-alias gcnr="grep --color=auto -inr"
-alias fgrepc="fgrep --color=auto"
-alias fgrepcnr="fgrep --color=auto -nr"
-alias fgcnr="fgrep --color=auto -nr"
-alias egrepc="egrep --color=auto"
-alias egrepcnr="egrep --color=auto -nr"
-alias egcnr="egrep --color=auto -nr"
+export GREPCMD=$(command -v grep)
+export GREP_OPTS="--color=auto -i"
+alias grepc=    "$GREPCMD $GREP_OPTS"
+alias grepcnr=  "$GREPCMD $GREP_OPTS -nr"
+alias gcnr=     "$GREPCMD $GREP_OPTS -nr"
+alias fgrepc=   "$GREPCMD $GREP_OPTS -F"
+alias fgrepcnr= "$GREPCMD $GREP_OPTS -Fnr"
+alias fgcnr=    "$GREPCMD $GREP_OPTS -Fnr"
+alias egrepc=   "$GREPCMD $GREP_OPTS -E"
+alias egrepcnr= "$GREPCMD $GREP_OPTS -Enr"
+alias egcnr=    "$GREPCMD $GREP_OPTS -Enr"
 
-alias path='echo -e ${PATH//:/\\n}'
+
+alias path='echo $PATH | sed -e "s/:/\n/g"'
 alias now='date "+%T"'
 
 alias ports='netstat -tulanp'
@@ -58,6 +55,8 @@ alias ping1='ping -c 1'
 alias timestamp='date "+%Y-%m-%d-%H-%M-%S"'
 
 alias rsyncx='rsync -avz --rexclude-from=$HOME/.rsync_excludes '
+
+alias sumacs='sudo emacs -nw -Q'
 
 alias log_action='echo "$(date "+%FT%T"): "'
 alias ytdl='youtube-dl -f 18 -o "%(title)s-%(id)s.%(ext)s" -k -x --audio-format mp3 '
