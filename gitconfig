@@ -31,3 +31,5 @@
 	cine = commit --no-edit
 [commit]
 [commit]
+[pull]
+	rebase = false
