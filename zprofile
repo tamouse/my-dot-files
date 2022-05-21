@@ -18,21 +18,4 @@ if [ -d ~/.zprofile.d ] ; then
   done
 fi
 
-# if running bash
-# if [ -n "$BASH_VERSION" ]; then
-#   # include .bashrc if it exists
-#   if [ -f "$HOME/.bashrc" ]; then
-# 	  . "$HOME/.bashrc"
-#   fi
-# fi
-
-# if [ -d "/usr/local/var/postgresql@9.6" ] ; then
-#     export PGDATA=/usr/local/var/postgresql@9.6/
-# fi
-
-
-# Show if the zoom auto-opener is running
-# lsof -i :19421
-
-
 eval "$(/opt/homebrew/bin/brew shellenv)"
