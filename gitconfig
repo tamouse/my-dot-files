@@ -30,3 +30,5 @@
 	cine = commit --no-edit
 [commit]
 [commit]
+[init]
+	defaultBranch = main
