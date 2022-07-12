@@ -1,7 +1,9 @@
 # -*- mode: shell-script -*-
 
-if [ -d /usr/local/opt/postgresql\@12/bin ] ; then
-    export PATH=/usr/local/opt/postgresql\@12/bin:$PATH
+# Install postgresql from homebrew
+
+if [ -d $HOMEBREW_PREFIX/opt/postgresql/bin ] ; then
+    export PATH=$HOMEBREW_PREFIX/opt/postgresql/bin:$PATH
 
     # Mainly useful if you want to run pg manually
     # alias pgstart='pg_ctl -D /usr/local/var/postgres start -l /usr/local/var/postgres/server.log'

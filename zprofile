@@ -10,6 +10,12 @@ export ORGANIZATION="Tamara Temple Web Development"
 export EDITOR='emacsclient'
 export VISUAL=$EDITOR
 export EMACS_ORG_PROTOCOL_PORT=9998
+export HOMEBREW_INSTALL=/usr/local/Homebrew
+eval "$($HOMEBREW_INSTALL/bin/brew shellenv)"
+# Yields into env:
+#  - HOMEBREW_CELLAR
+#  - HOMEBREW_PREFIX
+#  - HOMEBREW_REPOSITORY
 
 # extra profile files
 if [ -d ~/.zprofile.d ] ; then
@@ -17,5 +23,3 @@ if [ -d ~/.zprofile.d ] ; then
     [ -x "$s" ] && source "$s"
   done
 fi
-
-eval "$(/opt/homebrew/bin/brew shellenv)"
