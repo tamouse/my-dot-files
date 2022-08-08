@@ -30,15 +30,15 @@ alias lld="find -s . -mindepth 1 -maxdepth 1 -type d -print0 | xargs -0 $LSCMD -
 # a grepency, we love colour
 export GREPCMD=$(command -v grep)
 export GREP_OPTS="--color=auto -i"
-alias grepc=    "$GREPCMD $GREP_OPTS"
-alias grepcnr=  "$GREPCMD $GREP_OPTS -nr"
-alias gcnr=     "$GREPCMD $GREP_OPTS -nr"
-alias fgrepc=   "$GREPCMD $GREP_OPTS -F"
-alias fgrepcnr= "$GREPCMD $GREP_OPTS -Fnr"
-alias fgcnr=    "$GREPCMD $GREP_OPTS -Fnr"
-alias egrepc=   "$GREPCMD $GREP_OPTS -E"
-alias egrepcnr= "$GREPCMD $GREP_OPTS -Enr"
-alias egcnr=    "$GREPCMD $GREP_OPTS -Enr"
+alias grepc="$GREPCMD $GREP_OPTS"
+alias grepcnr="$GREPCMD $GREP_OPTS -nr"
+alias gcnr="$GREPCMD $GREP_OPTS -nr"
+alias fgrepc="$GREPCMD $GREP_OPTS -F"
+alias fgrepcnr="$GREPCMD $GREP_OPTS -Fnr"
+alias fgcnr="$GREPCMD $GREP_OPTS -Fnr"
+alias egrepc="$GREPCMD $GREP_OPTS -E"
+alias egrepcnr="$GREPCMD $GREP_OPTS -Enr"
+alias egcnr="$GREPCMD $GREP_OPTS -Enr"
 
 
 alias path='echo $PATH | sed -e "s/:/\n/g"'
