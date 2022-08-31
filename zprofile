@@ -20,6 +20,6 @@ eval "$($HOMEBREW_INSTALL/bin/brew shellenv)"
 # extra profile files
 if [ -d ~/.zprofile.d ] ; then
   for s in $(find ~/.zprofile.d/ -type f | grep -v '~$') ; do
-    [ -x "$s" ] && source "$s"
+    [ -x "$s" ] && echo -n "Sourcing $s: "  && source "$s" && echo "done."
   done
 fi
