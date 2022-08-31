@@ -1,3 +1,6 @@
 # Aliases for Wherefour work
 
-alias .w4a="pushd $HOME/Work/Wherefour/wherefour-app/"
+WHEREFOUR_DIR="$HOME/Work/Wherefour"
+alias .w4a="pushd $WHEREFOUR_DIR/wherefour-app/"
+alias .reset="bundle exed rails db:migrate:reset"
+alias .load="bundle exec rails db:fixtures:load"
