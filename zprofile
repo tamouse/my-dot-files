@@ -12,6 +12,10 @@ export VISUAL=$EDITOR
 export EMACS_ORG_PROTOCOL_PORT=9998
 export HOMEBREW_INSTALL=/usr/local/Homebrew
 eval "$($HOMEBREW_INSTALL/bin/brew shellenv)"
+
+# For silencing wherefour system tests:
+export MUTE_TEST_AUDIO=true
+
 # Yields into env:
 #  - HOMEBREW_CELLAR
 #  - HOMEBREW_PREFIX
