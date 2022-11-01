@@ -13,9 +13,6 @@ export EMACS_ORG_PROTOCOL_PORT=9998
 export HOMEBREW_INSTALL=/usr/local/Homebrew
 eval "$($HOMEBREW_INSTALL/bin/brew shellenv)"
 
-# For silencing wherefour system tests:
-export MUTE_TEST_AUDIO=true
-
 # Yields into env:
 #  - HOMEBREW_CELLAR
 #  - HOMEBREW_PREFIX
@@ -24,6 +21,6 @@ export MUTE_TEST_AUDIO=true
 # extra profile files
 if [ -d ~/.zprofile.d ] ; then
   for s in $(find ~/.zprofile.d/ -type f | grep -v '~$') ; do
-    [ -x "$s" ] && echo -n "Sourcing $s: "  && source "$s" && echo "done."
+    [ -x "$s" ] && source "$s"
   done
 fi
