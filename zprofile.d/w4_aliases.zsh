@@ -19,7 +19,7 @@ export NO_WHEREFOUR_REPORTER=1
 
 ## Docker
 export DATABASE_USER=wherefour
-export DATABASE_PASSWORK=wherefour
+export DATABASE_PASSWORD=wherefour
 export DATABASE_HOST=postgresql
 
 ## LeafLink
