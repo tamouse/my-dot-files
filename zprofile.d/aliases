@@ -19,8 +19,9 @@ alias eject='diskutil eject'
 
 export LSCMD=$(command -v ls)
 export LS_OPTS=""
-alias ls="$LSCMD -AFh $LS_OPTS"
-alias ll="$LSCMD -AFlh $LS_OPTS"
+alias lsa="$LSCMD -AFh $LS_OPTS"
+alias lla="$LSCMD -AFlh $LS_OPTS"
+alias LLA="$LSCMD -AFlh $LS_OPTS | less"
 alias l1="$LSCMD -1h $LS_OPTS"
 alias lm="$LSCMD -mh $LS_OPTS"
 
