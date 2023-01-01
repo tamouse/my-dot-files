@@ -5,8 +5,10 @@ alias mv='mv -v'
 alias cp='cp -v'
 alias rm='rm -v'
 alias tac="tail -r "
-alias .-="pushd "
-alias .--="popd "
+alias .d="pushd "
+alias .+="pushd "
+alias .p="popd "
+alias .-="popd "
 
 alias e='emacsclient -a ""'
 alias ec='emacsclient -a "" -c'
