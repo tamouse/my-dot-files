@@ -18,15 +18,15 @@ alias by='bundle && yarn'
 alias eject='diskutil eject'
 
 export LSCMD=$(command -v ls)
-export LS_OPTS=""
-alias lsa="$LSCMD -AFh $LS_OPTS"
-alias lla="$LSCMD -AFlh $LS_OPTS"
-alias LLA="$LSCMD -AFlh $LS_OPTS | less"
-alias l1="$LSCMD -1h $LS_OPTS"
-alias lm="$LSCMD -mh $LS_OPTS"
+export LS_OPTS="-GAhF"
+alias lsa="$LSCMD $LS_OPTS"
+alias lla="$LSCMD -l $LS_OPTS"
+alias LLA="$LSCMD -l $LS_OPTS | less"
+alias l1="$LSCMD -1 $LS_OPTS"
+alias lm="$LSCMD -m $LS_OPTS"
 
 # Show me the dotfiles, bruh
-alias lld="find -s . -mindepth 1 -maxdepth 1 -type d -print0 | xargs -0 $LSCMD -AFhld $LS_OPTS; find -s . -mindepth 1 -maxdepth 1 \! -type d -print0 | xargs -0 $LSCMD -AFhl $LS_OPTS"
+alias lld="find -s . -mindepth 1 -maxdepth 1 -type d -print0 | xargs -0 $LSCMD -ld $LS_OPTS; find -s . -mindepth 1 -maxdepth 1 \! -type d -print0 | xargs -0 $LSCMD -l $LS_OPTS"
 
 # a grepency, we love colour
 export GREPCMD=$(command -v grep)
