@@ -41,7 +41,7 @@ alias lld="find -s . -mindepth 1 -maxdepth 1 -type d -print0 | xargs -0 $LSCMD -
 # a grepency, we love colour
 # a grepency, we love colour
 export GREPCMD=$(which grep)
-export GREP_OPTS="--color=auto -i"
+export GREP_OPTS="--color=auto -i --exclude-dir '.{git,idea}'"
 alias grepc="$GREPCMD $GREP_OPTS"
 alias grepcnr="$GREPCMD $GREP_OPTS -nr"
 alias gcnr="$GREPCMD $GREP_OPTS -nr"
