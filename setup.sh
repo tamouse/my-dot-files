@@ -33,7 +33,7 @@ echo "Linking files from $PWD into $HOME"
 set -e
 ln -fs $PWD/bash_profile $HOME/.bash_profile
 ln -fs $PWD/bashrc $HOME/.bashrc
-ln -fs $PWD/zshrc $HOME/.zshrc
+ln -fs $PWD/zshrc.zsh $HOME/.zshrc
 ln -fs $PWD/bashrc.d $HOME/.bashrc.d
 ln -fs $PWD/gitconfig $HOME/.gitconfig
 ln -fs $PWD/gitignore_global $HOME/.gitignore_global

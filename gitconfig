@@ -29,6 +29,7 @@
 	dryrun = merge --no-commit --no-ff --no-edit
 	cine = commit --no-edit
 [commit]
-[commit]
 [pull]
 	rebase = false
+[init]
+	defaultBranch = main
