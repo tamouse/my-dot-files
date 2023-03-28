@@ -4,6 +4,9 @@
 [core]
 	autocrlf = input
 	excludesfile = /Users/tamouse/.gitignore_global
+	excludesfile = /Users/tamouse/.gitignore_global
+	excludesfile = /Users/tamouse/.gitignore_global
+	excludesfile = /Users/tamouse/.gitignore_global
 [color]
 	ui = true
 [push]
