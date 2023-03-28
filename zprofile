@@ -12,7 +12,7 @@ export ORGANIZATION="Tamara Temple Web Development"
 export EDITOR='emacsclient'
 export VISUAL=$EDITOR
 export EMACS_ORG_PROTOCOL_PORT=9998
-export HOMEBREW_INSTALL=/usr/local/Homebrew
+export HOMEBREW_INSTALL=/opt/honebrew
 eval "$($HOMEBREW_INSTALL/bin/brew shellenv)"
 
 # Yields into env:

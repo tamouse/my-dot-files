@@ -1,1 +1,0 @@
-/Users/tamouse/.my-dot-files/zprofile.d
