@@ -5,13 +5,11 @@ export LANGUAGE="en_US:en"
 export LC_MESSAGES="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 export LC_COLLATE="en_US.UTF-8"
-
-export LESS_IS_MORE=1
-
-export ORGANIZATION="Tamara Temple Web Development"
+export ORGANIZATION="M-RETS"
+export EMAIL="tamara@mrets.org"
+export MAIL="$EMAIL"
 export EDITOR='emacsclient'
 export VISUAL=$EDITOR
-export EMACS_ORG_PROTOCOL_PORT=9998
 export HOMEBREW_INSTALL=/opt/homebrew
 eval "$($HOMEBREW_INSTALL/bin/brew shellenv)"
 
