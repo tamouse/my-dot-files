@@ -100,3 +100,4 @@ fi
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
+export PATH="/opt/homebrew/opt/libxml2/bin:$PATH"

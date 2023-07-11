@@ -27,10 +27,11 @@
 *.toc
 
 # JetBrains cruft
-.idea/
+.idea
 
 .sass-cache/
 log/
 tmp/
 .bundle/
 .swp
+vendor/
