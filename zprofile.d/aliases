@@ -65,9 +65,10 @@ alias sumacs='sudo emacs -nw -Q'
 alias log_action='echo "$(date "+%FT%T"): "'
 alias ytdl='youtube-dl -f 18 -o "%(title)s-%(id)s.%(ext)s" -k -x --audio-format mp3 '
 
-alias xcops='xargs bin/rubocop'
-alias xcopsa='xargs bin/rubocop -a'
-alias xcopsaa='xargs bin/rubocop -A'
+export XCOP='xargs bundle exec rubocop'
+alias xcops=${XCOP}
+alias xcopsa="${XCOP} -a"
+alias xcopsaa="${XCOP} -A"
 
 function tree () {
     /bin/ls -AR | grep ':$' | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'
