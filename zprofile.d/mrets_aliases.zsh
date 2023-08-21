@@ -1,13 +1,26 @@
 #! /usr/bin/env zsh
 
-# Time-stamp: <2023-08-11 10:37:32 tamara>
+# Time-stamp: <2023-08-18 15:26:31 tamara>
 
 alias .m="pushd $HOME/Documents/Work/mrets/"
 alias .mr="pushd $HOME/Documents/Work/mrets-react/"
 
 # Pull data from staging without enormous tables that aren't much use for dev/test
-alias fetch_staging_dump="pg_dump --format=custom \$(heroku config:get DATABASE_URL --app m-rets-staging) --exclude-table-data='(wregis|mrets)_mat_*' --exclude-table-data='versions' --exclude-table-data='version_associations'"
-alias fetch_rc_dump="pg_dump --format=custom \$(heroku config:get DATABASE_URL --app m-rets-rc) --exclude-table-data='(wregis|mrets)_mat_*' --exclude-table-data='versions' --exclude-table-data='version_associations'"
+# alias fetch_staging_dump="pg_dump --format=custom \$(heroku config:get DATABASE_URL --app m-rets-staging) --exclude-table-data='(wregis|mrets)_mat_*' --exclude-table-data='versions' --exclude-table-data='version_associations'"
+# alias fetch_rc_dump="pg_dump --format=custom \$(heroku config:get DATABASE_URL --app m-rets-rc) --exclude-table-data='(wregis|mrets)_mat_*' --exclude-table-data='versions' --exclude-table-data='version_associations'"
+fetch_dump() {
+  environment=${1}
+  heroku_environment="m-rets-${environment}"
+  outfile="${environment}_$(timestamp).dump"
+  outdir="$USER/Documents/Work/DATA"
+  pg_dump --format=custom $(heroku config:get DATABASE_URL --app ${heroku_environment}) \
+          --exclude-table-data='(wregis|mrets)_mat_*' --exclude-table-data='versions' --exclude-table-data='version_associations' \
+          > "$outdir/$outfile"
+  unset environment
+  unset heroku_environment
+  unset environment
+  unset outdir
+}
 
 # quick drop and create dev database from template
 qk_reset() {
