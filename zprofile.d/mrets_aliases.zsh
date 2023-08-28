@@ -1,6 +1,6 @@
 #! /usr/bin/env zsh
 
-# Time-stamp: <2023-08-18 15:26:31 tamara>
+# Time-stamp: <2023-08-25 13:50:49 tamara>
 
 alias .m="pushd $HOME/Documents/Work/mrets/"
 alias .mr="pushd $HOME/Documents/Work/mrets-react/"
@@ -12,7 +12,7 @@ fetch_dump() {
   environment=${1}
   heroku_environment="m-rets-${environment}"
   outfile="${environment}_$(timestamp).dump"
-  outdir="$USER/Documents/Work/DATA"
+  outdir="$HOME/Documents/Work/DATA"
   pg_dump --format=custom $(heroku config:get DATABASE_URL --app ${heroku_environment}) \
           --exclude-table-data='(wregis|mrets)_mat_*' --exclude-table-data='versions' --exclude-table-data='version_associations' \
           > "$outdir/$outfile"
@@ -38,8 +38,10 @@ refresh_data() {
 
 # Fixup for 2.7.8
 fix278() {
-  sed -i .bak -e 's/6/8/' .ruby-version
-  git update-index --assume-unchanged .ruby-version
+  sed -i .bak -e '/2\.7\.6/s/6/8/' .ruby-version
+  sed -i .bak -e "/^ruby/s/ruby '~> 2\.7\.6'/ruby '~> 2.7.8'/" Gemfile
+  git update-index --assume-unchanged .ruby-version Gemfile Gemfile.lock
+  bundle install
 }
 
 # Fixup for update passwords

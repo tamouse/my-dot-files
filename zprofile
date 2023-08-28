@@ -25,7 +25,8 @@ if [ -d ~/.zprofile.d ] ; then
   done
 fi
 
-# Setting PATH for Python 2.7
-# The original version is saved in .zprofile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
-export PATH
+if [ -d ~/.shared.d ] ; then
+  for s in $(find ~/.shared.d/ -type f | grep -v '~$') ; do
+    [ -x "$s" ] && source "$s"
+  done
+fi

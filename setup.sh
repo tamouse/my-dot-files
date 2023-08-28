@@ -26,11 +26,12 @@ ln -fs $PWD/pryrc $HOME/.pryrc
 
 # Get rid of these dirs before linking
 mkdir -p $HOME/.old-dot-files
-mv $HOME/.bashrc.d $HOME/.old-dot-files
+for d in $HOME/.bashrc.d $HOME/.profile.d $HOME/.shared.d $HOME/.zprofile.d; do
+  [ -d $d ] && mv -vf $d $HOME/.old-dot-files && rm -vf $d
+done
 ln -fs $PWD/bashrc.d $HOME/.bashrc.d
-mv $HOME/.profile.d $HOME/.old-dot-files
 ln -fs $PWD/profile.d $HOME/.profile.d
-mv $HOME/.zprofile.d $HOME/.old-dot-files
+ln -fs $PWD/shared.d $HOME/.shared.d
 ln -fs $PWD/zprofile.d $HOME/.zprofile.d
 
 echo "Log out and log in again to ensure everything is in it's place."

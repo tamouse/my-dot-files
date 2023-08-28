@@ -1,0 +1,12 @@
+# -*- mode: shell-script -*-
+# Docker compose aliases
+
+# dcrun APP
+dcrun() {
+  docker compose run --rm ${1}
+}
+
+# dcbash APP
+dcbash() {
+  docker compose run --rm ${1} /bin/bash
+}

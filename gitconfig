@@ -5,6 +5,18 @@
 	autocrlf = input
 	excludesfile = /Users/tamara/.gitignore_global
 	excludesfile = /Users/tamara/.gitignore_global
+	excludesfile = /Users/tamara/.gitignore_global
+	excludesfile = /Users/tamara/.gitignore_global
+	excludesfile = /Users/tamara/.gitignore_global
+	excludesfile = /Users/tamara/.gitignore_global
+	excludesfile = /Users/tamara/.gitignore_global
+	excludesfile = /Users/tamara/.gitignore_global
+	excludesfile = /Users/tamara/.gitignore_global
+	excludesfile = /Users/tamara/.gitignore_global
+	excludesfile = /Users/tamara/.gitignore_global
+	excludesfile = /Users/tamara/.gitignore_global
+	excludesfile = /Users/tamara/.gitignore_global
+	excludesfile = /Users/tamara/.gitignore_global
 [color]
 	ui = true
 [push]
