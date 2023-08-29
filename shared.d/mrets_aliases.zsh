@@ -1,6 +1,6 @@
 #! /usr/bin/env zsh
 
-# Time-stamp: <2023-08-25 13:50:49 tamara>
+# Time-stamp: <2023-08-28 17:04:11 tamara>
 
 alias .m="pushd $HOME/Documents/Work/mrets/"
 alias .mr="pushd $HOME/Documents/Work/mrets-react/"
@@ -49,3 +49,9 @@ fixpwupdate() {
   sed -i .bak -e 's/25/12/' lib/tasks/util/update_user_passwords_for_test.rake
   git update-index --assume-unchanged lib/tasks/util/update_user_passwords_for_test.rake
 }
+
+# DOCKER STUFF
+
+alias dcresetdb='docker compose run --rm api bundle exec rails db:drop db:create db:migrate'
+alias dcreseed='docker compose run --rm api bundle exec rails util:full_seeds'
+alias dclsdb='docker compose run --rm postgres_db /bin/bash -lc "pg_ctl start && psql -c \"\l\""'

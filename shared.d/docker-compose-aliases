@@ -1,10 +1,24 @@
 # -*- mode: shell-script -*-
 # Docker compose aliases
 
-# dcrun APP
-dcrun() {
-  docker compose run --rm ${1}
-}
+alias dcbld='docker compose build'
+alias dcbuild='docker compose build'
+alias dcdn='docker compose down'
+alias dcexec='docker compose exec'
+alias dclogs='docker compose logs'
+alias dcls='docker compose ls'
+alias dclsim='docker compose images'
+alias dcpause='docker compose pause'
+alias dcps='docker compose ps'
+alias dcrestart='docker compose restart'
+alias dcrm='docker compose rm'
+alias dcrun='docker compose run'
+alias dcrunrm='docker compose run --rm'
+alias dcstart='docker compose start'
+alias dcstop='docker compose stop'
+alias dcunpause='docker compose unpause'
+alias dcup='docker compose up'
+
 
 # dcbash APP
 dcbash() {
