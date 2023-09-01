@@ -1,6 +1,6 @@
 #! /usr/bin/env zsh
 
-# Time-stamp: <2023-08-29 17:33:34 tamara>
+# Time-stamp: <2023-09-01 10:46:49 tamara>
 
 alias .m="pushd $HOME/Documents/Work/mrets/"
 alias .mr="pushd $HOME/Documents/Work/mrets-react/"
@@ -56,3 +56,4 @@ alias dcresetdb='docker compose run --rm sidekiq bundle exec rails db:drop db:cr
 alias dccreate='docker compose run --rm sidekiq bundle exec rake db:create db:schema:load'
 alias dcreseed='docker compose run --rm sidekiq bundle exec rails util:full_seeds'
 alias dclsdb='docker compose run --rm postgres_db /bin/bash -lc "pg_ctl start && psql -c \"\l\""'
+alias dcpg='docker compose run --rm postgres_db /bin/bash -lc '

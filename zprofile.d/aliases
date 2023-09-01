@@ -14,6 +14,7 @@ alias e='emacsclient -a ""'
 alias ec='emacsclient -a "" -c'
 alias en='emacsclient -a "" -n'
 alias ecn='emacsclient -a "" -c -n'
+alias e.='emacsclient -a "" -c -n .'
 alias sumacs='sudo emacs -nw -Q'
 
 alias by='bundle && yarn'
