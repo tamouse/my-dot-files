@@ -1,6 +1,6 @@
 #! /usr/bin/env zsh
 
-# Time-stamp: <2023-09-14 14:15:58 tamara>
+# Time-stamp: <2023-09-15 12:18:36 tamara>
 
 export Work=$HOME/Work
 alias .m="pushd $Work/mrets/"
@@ -59,8 +59,15 @@ alias dcreseed='docker compose run --rm sidekiq bundle exec rails util:full_seed
 alias dclsdb='docker compose run --rm postgres_db /bin/bash -lc "pg_ctl start && psql -c \"\l\""'
 alias dcpg='docker compose run --rm postgres_db /bin/bash -l '
 alias dcapi='docker compose run --rm api /bin/bash -l '
+alias dcbrc='docker compose run --rm api /bin/bash -l -c "bundle exec rails console" '
+alias dcbrr='docker compose run --rm api /bin/bash -l -c "bundle exec rails runner" '
+alias dcdbmigrate='docker compose run --rm api /bin/bash -l -c "bundle exec rails db:migrate" '
+alias dcbtestprepare='docker compose run --rm api /bin/bash -l -c "bundle exec rails db:test:prepare" '
+alias dcrspec='docker compose run --rm api /bin/bash -l -c "bundle exec rails db:test:prepare; bundle exec rspec" '
+
 alias dcpgdropdb="docker compose run --rm postgres_db /bin/bash -l -c 'pg_ctl start && dropdb m-rets_development && dropdb m-rets_test ; psql -c \"\l\" '"
 alias dcpgcreatedb="docker compose run --rm postgres_db /bin/bash -l -c 'pg_ctl start && createdb m-rets_development && createdb m-rets_test ; psql -c \"\l\" '"
+
 dcpgrestore() {
   dumpfile=${1}
   base=$(basename $dumpfile)
@@ -73,7 +80,7 @@ dcpgrestore() {
   sed -i .bak -e 's/25/12/' lib/tasks/util/update_user_passwords_for_test.rake
   git update-index --assume-unchanged lib/tasks/util/update_user_passwords_for_test.rake
   echo Fixing up the passwords
-  docker compose run --rm api /bin/bash -l 'bundle exec rails util:update_user_passwords_for_test PASSWORD=testtesttest'
+  docker compose run --rm api /bin/bash -l -c 'PASSWORD=testtesttest bundle exec rails util:update_user_passwords_for_test'
   echo Making a backup db
   docker compose run --rm postgres_db /bin/bash -l -c "pg_ctl start; createdb -T m-rets_development $name; psql -c \"\l\""
   unset name
