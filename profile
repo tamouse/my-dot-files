@@ -14,8 +14,6 @@ export LC_MESSAGES="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 export LC_COLLATE="en_US.UTF-8"
 
-export LESS_IS_MORE=1
-
 export ORGANIZATION="Tamara Temple Web Development"
 export EDITOR='emacsclient'
 export VISUAL=$EDITOR
@@ -35,3 +33,4 @@ if [ -n "$BASH_VERSION" ]; then
 	  . "$HOME/.bashrc"
   fi
 fi
+PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"

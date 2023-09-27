@@ -6,8 +6,6 @@ export LC_MESSAGES="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 export LC_COLLATE="en_US.UTF-8"
 
-export LESS_IS_MORE=1
-
 export ORGANIZATION="Tamara Temple Web Development"
 export EDITOR='emacsclient'
 export VISUAL=$EDITOR
@@ -26,3 +24,9 @@ if [ -d ~/.zprofile.d ] ; then
     [ -x "$s" ] && source "$s"
   done
 fi
+
+# Setting PATH for Python 3.11
+# The original version is saved in .zprofile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.11/bin:${PATH}"
+export PATH
+PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"

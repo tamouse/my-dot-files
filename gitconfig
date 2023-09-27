@@ -5,9 +5,6 @@
 	autocrlf = input
 	excludesfile = /Users/tamouse/.gitignore_global
 	excludesfile = /Users/tamouse/.gitignore_global
-	excludesfile = /Users/tamouse/.gitignore_global
-	excludesfile = /Users/tamouse/.gitignore_global
-	excludesfile = /Users/tamara/.gitignore_global
 [color]
 	ui = true
 [push]
@@ -16,12 +13,6 @@
 	clean = git hawser clean %f
 	smudge = git hawser smudge %f
 	required = true
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
-[mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
 [alias]
 	aa = add --all
 	cim = commit --message
