@@ -24,12 +24,13 @@ alias by='bundle && yarn'
 alias eject='diskutil eject'
 
 export LSCMD=/bin/ls
-system_type=`uname`
-if [ "$system_type" == "Darwin" ] ; then
-    export LS_OPTS="-GFh"
-else
-    export LS_OPTS="--color=auto -Fh"
-fi
+export LS_OPTS='-FGh'
+# system_type=`uname`
+# if [ "$system_type" == "Darwin" ] ; then
+#     export LS_OPTS="-GFh"
+# else
+#     export LS_OPTS="--color=auto -Fh"
+# fi
 
 alias ls="$LSCMD $LS_OPTS"
 alias ll="$LSCMD -l $LS_OPTS"

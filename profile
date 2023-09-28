@@ -41,7 +41,7 @@ if [ -d ~/.shared.d ] ; then
   done
 fi
 
-[ -x "$HOME/.local_sh" ] && source "$HOME/.local.sh"
+[ -x "$HOME/.local_profile" ] && source "$HOME/.local_profile"
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
@@ -50,3 +50,4 @@ if [ -n "$BASH_VERSION" ]; then
 	  . "$HOME/.bashrc"
   fi
 fi
+PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"

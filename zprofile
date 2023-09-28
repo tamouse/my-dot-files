@@ -5,9 +5,7 @@ export LANGUAGE="en_US:en"
 export LC_MESSAGES="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 export LC_COLLATE="en_US.UTF-8"
-export ORGANIZATION="M-RETS"
-export EMAIL="tamouse@gmail.com"
-export MAIL="$EMAIL"
+export ORGANIZATION="Tamara Temple Web Development"
 export EDITOR='emacsclient'
 export VISUAL=$EDITOR
 
@@ -31,4 +29,10 @@ if [ -d ~/.shared.d ] ; then
   done
 fi
 
-[ -x "$HOME/.local_sh" ] && source "$HOME/.local.sh"
+[ -x "$HOME/.local_profile" ] && source "$HOME/.local_profile"
+
+
+# Setting PATH for Python 3.11
+# The original version is saved in .zprofile.pysave
+export PATH="/Library/Frameworks/Python.framework/Versions/3.11/bin:${PATH}"
+export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
