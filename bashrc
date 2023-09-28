@@ -95,9 +95,6 @@ if [ -d ~/.bashrc.d ] ; then
     done
 fi
 
-# added by travis gem
-[ -f /Users/tamara.temple/.travis/travis.sh ] && source /Users/tamara.temple/.travis/travis.sh
-
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
-export PATH="/opt/homebrew/opt/libxml2/bin:$PATH"
+export PATH="$HOMEBREW_PREFIX/opt/libxml2/bin:$PATH"
+export PATH="$HOME/.emacs.d/bin:$PATH"

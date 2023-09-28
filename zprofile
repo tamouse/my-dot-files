@@ -6,17 +6,17 @@ export LC_MESSAGES="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 export LC_COLLATE="en_US.UTF-8"
 export ORGANIZATION="M-RETS"
-export EMAIL="tamara@mrets.org"
+export EMAIL="tamouse@gmail.com"
 export MAIL="$EMAIL"
 export EDITOR='emacsclient'
 export VISUAL=$EDITOR
-export HOMEBREW_INSTALL=/opt/homebrew
-eval "$($HOMEBREW_INSTALL/bin/brew shellenv)"
 
 # Yields into env:
 #  - HOMEBREW_CELLAR
 #  - HOMEBREW_PREFIX
 #  - HOMEBREW_REPOSITORY
+[ -d "/opt/homebrew/Cellar" ] && eval "$(/opt/homebrew/bin/brew shellenv)"
+[ -d "/usr/local/Cellar" ] && eval "$(/usr/local/bin/brew shellenv)"
 
 # extra profile files
 if [ -d ~/.zprofile.d ] ; then
@@ -30,3 +30,5 @@ if [ -d ~/.shared.d ] ; then
     [ -x "$s" ] && source "$s"
   done
 fi
+
+[ -x "$HOME/.local_sh" ] && source "$HOME/.local.sh"

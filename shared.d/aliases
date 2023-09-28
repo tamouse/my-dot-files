@@ -10,17 +10,20 @@ alias .+="pushd "
 alias .p="popd "
 alias .-="popd "
 
-alias e='emacsclient -a "" -c'
-alias ec='emacsclient -a "" -c'
-alias en='emacsclient -a "" -c -n'
-alias ecn='emacsclient -a "" -c -n'
+export EMACS_EDITOR=/Applications/Emacs.app
+alias e='emacsclient -a $EMACS_EDITOR -c'
+alias ec='emacsclient -a $EMACS_EDITOR -c'
+alias er='emacsclient -a $EMACS_EDITOR -r'
+alias en='emacsclient -a $EMACS_EDITOR -c -n'
+alias ecn='emacsclient -a $EMACS_EDITOR -c -n'
+alias ern='emacsclient -a $EMACS_EDITOR -r -n'
 alias sumacs='sudo emacs -nw -Q'
 
 alias by='bundle && yarn'
 
 alias eject='diskutil eject'
 
-export LSCMD=$(which ls)
+export LSCMD=/bin/ls
 system_type=`uname`
 if [ "$system_type" == "Darwin" ] ; then
     export LS_OPTS="-GFh"
@@ -40,19 +43,20 @@ alias lld="find -s . -mindepth 1 -maxdepth 1 -type d -print0 | xargs -0 $LSCMD -
 
 # a grepency, we love colour
 # a grepency, we love colour
-export GREPCMD=$(which grep)
-export GREP_OPTS='--color=auto -i --exclude-dir .git --exclude-dir .idea'
+export GREPCMD=/usr/bin/grep
+export GREP_OPTS='--ignore-case --exclude-dir .git --exclude-dir .idea'
 alias grepc="$GREPCMD $GREP_OPTS"
-alias grepcnr="$GREPCMD $GREP_OPTS -nr"
+alias grepcnr="$GREPCMD $GREP_OPTS --color=auto -nr"
 alias gcnr="$GREPCMD $GREP_OPTS -nr"
-alias fgrepc="$GREPCMD $GREP_OPTS -F"
-alias fgrepcnr="$GREPCMD $GREP_OPTS -Fnr"
+alias fgrepc="$GREPCMD $GREP_OPTS --color=auto -F "
+alias fgrepcnr="$GREPCMD $GREP_OPTS --color=auto -Fnr"
 alias fgcnr="$GREPCMD $GREP_OPTS -Fnr"
-alias egrepc="$GREPCMD $GREP_OPTS -E"
-alias egrepcnr="$GREPCMD $GREP_OPTS -Enr"
+alias egrepc="$GREPCMD $GREP_OPTS --color=auto -E"
+alias egrepcnr="$GREPCMD $GREP_OPTS --color=auto -Enr"
 alias egcnr="$GREPCMD $GREP_OPTS -Enr"
 
 alias path\?='echo -e ${PATH//:/\\n}'
+alias pathP='echo -e ${PATH//:/\\n}'
 alias .now='date "+%T"'
 
 alias ports='netstat -tulanp'
@@ -71,47 +75,54 @@ alias rsnx='rsync -avz --rexclude-from=$HOME/.rsync_excludes '
 alias log_action='echo "$(date "+%FT%T"): "'
 alias ytdl='youtube-dl -f 18 -o "%(title)s-%(id)s.%(ext)s" -k -x --audio-format mp3 '
 
-alias xcops='xargs bin/rubocop'
-alias xcopsa='xargs bin/rubocop -a'
-alias xcopsaa='xargs bin/rubocop -A'
+export XCOP='xargs bundle exec rubocop'
+alias xcops=${XCOP}
+alias xcopsa="${XCOP} -a"
+alias xcopsaa="${XCOP} -A"
 
 function tree () {
     /bin/ls -AR | grep ':$' | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'
 }
 
 # replace spaces in file names with underscores
-function unspace_filename () {
-    echo "$1" | tr --squeeze-repeats " " "_"
+function unspace_filenames () {
+  for f in $@ ; do
+    echo "$f" | tr -s " " "_"
+  done
 }
 
 # lowercase file names
-function lc_filename () {
-    echo "$1" | tr '[:upper:]' '[:lower:]'
+function lc_filenames () {
+  for f in $@ ; do
+    echo "$f" | tr '[:upper:]' '[:lower:]'
+  done
 }
 
 # clean file name: lower case, no spaces, alphanumeric plus _-+. only
-function clean_filename () {
+function clean_filenames () {
+  for f in $@ ; do
     echo "$1" | perl -p -e 'chomp;s/\s+/_/g;s/[^[:alnum:]_+\.-]*//g;lc;'
+  done
 }
 
 # find diff between backup and current files in pwd after a filtering operation
 function diffbak () {
     for f in *.bak ; do
-	diff "${f%%.bak}" "$f"
+	    diff "${f%%.bak}" "$f"
     done
 }
 
 # push back original files in pwd after filtering operation
 function restore () {
     for f in *.bak ; do
-	mv -v "$f" "${f%%.bak}"
+	    mv -v "$f" "${f%%.bak}"
     done
 }
 
 # rename old files in pwd with new extension
 function rename_all () {
     for f in *.$1 ; do
-	mv "$f" "${f%%.$1}.$2"
+	    mv "$f" "${f%%.$1}.$2"
     done
 }
 

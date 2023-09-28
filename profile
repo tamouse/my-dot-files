@@ -14,12 +14,18 @@ export LC_MESSAGES="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 export LC_COLLATE="en_US.UTF-8"
 
-export LESS_IS_MORE=1
-
 export ORGANIZATION="Tamara Temple Web Development"
 export EDITOR='emacsclient'
 export VISUAL=$EDITOR
-export EMACS_ORG_PROTOCOL_PORT=9998
+
+# Yields into env:
+#  - HOMEBREW_CELLAR
+#  - HOMEBREW_PREFIX
+#  - HOMEBREW_REPOSITORY
+[ -d "/opt/homebrew/Cellar" ] && eval "$(/opt/homebrew/bin/brew shellenv)"
+[ -d "/usr/local/Cellar" ] && eval "$(/usr/local/bin/brew shellenv)"
+
+# export EMACS_ORG_PROTOCOL_PORT=9998
 
 # extra profile files
 if [ -d ~/.profile.d ] ; then
@@ -27,6 +33,15 @@ if [ -d ~/.profile.d ] ; then
     [ -x "$s" ] && source "$s"
   done
 fi
+
+# extra shared profile files
+if [ -d ~/.shared.d ] ; then
+  for s in $(find ~/.shared.d/ -type f | grep -v '~$') ; do
+    [ -x "$s" ] && source "$s"
+  done
+fi
+
+[ -x "$HOME/.local_sh" ] && source "$HOME/.local.sh"
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
