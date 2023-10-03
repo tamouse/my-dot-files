@@ -60,6 +60,7 @@ alias dccreate='docker compose run --rm sidekiq bundle exec rake db:create db:sc
 alias dcreseed='docker compose run --rm sidekiq bundle exec rails util:full_seeds'
 alias dclsdb='docker compose run --rm postgres_db /bin/bash -lc "pg_ctl start && psql -c \"\l\""'
 alias dcpg='docker compose run --rm postgres_db /bin/bash -l '
+alias dcpgls='docker compose run --rm postgres_db /bin/bash -lc "pg_ctl start && psql -c \"\l\""'
 alias dcapi='docker compose run --rm api /bin/bash -l '
 alias dcbrc='docker compose run --rm api /bin/bash -l -c "bundle exec rails console" '
 alias dcbrr='docker compose run --rm api /bin/bash -l -c "bundle exec rails runner" '
