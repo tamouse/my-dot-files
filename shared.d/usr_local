@@ -1,3 +1,4 @@
 # -*- mode: shell-script -*-
+
 # append /usr/local stuff to PATH
 export PATH=$PATH:/usr/local/bin:/usr/local/sbin

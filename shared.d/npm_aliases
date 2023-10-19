@@ -1,3 +1,5 @@
+# -*- mode: shell-script -*-
+
 # Aliases for doing npm stuff
 alias npms='npm start'
 alias npmr='npm run'

@@ -1,4 +1,4 @@
-#! /usr/bin/env zsh
+# -*- mode: shell-script -*-
 
 # Time-stamp: <2023-09-15 12:18:36 tamara>
 
@@ -7,6 +7,7 @@ alias .m="pushd $Work/mrets/"
 alias .mr="pushd $Work/mrets-react/"
 
 export DEV_DB='m-rets_development'
+export TEST_DB='m-rets_test'
 
 # Pull data from staging without enormous tables that aren't much use for dev/test
 # alias fetch_staging_dump="pg_dump --format=custom \$(heroku config:get DATABASE_URL --app m-rets-staging) --exclude-table-data='(wregis|mrets)_mat_*' --exclude-table-data='versions' --exclude-table-data='version_associations'"
@@ -26,26 +27,26 @@ fetch_dump() {
 }
 
 # quick drop and create dev database from template
-qk_reset() {
-  dropdb "${DEV_DB}"
-  createdb -T ${1} "${DEV_DB}"
-}
+# qk_reset() {
+#   dropdb "${DEV_DB}"
+#   createdb -T ${1} "${DEV_DB}"
+# }
 
-# refresh databawe from data pulled
-refresh_data() {
-  pg_restore --verbose --clean --no-acl --no-owner -d "${DEV_DB}" < ${1}
-  bin/rails util:update_user_passwords_for_test PASSWORD=testtesttest
-  createdb --template "${DEV_DB}" ${2}_$(timestamp|tr '-' '_')
-  psql -c '\l'
-}
+# refresh database from data pulled
+# refresh_data() {
+#   pg_restore --verbose --clean --no-acl --no-owner -d "${DEV_DB}" < ${1}
+#   bin/rails util:update_user_passwords_for_test PASSWORD=testtesttest
+#   createdb --template "${DEV_DB}" ${2}_$(timestamp|tr '-' '_')
+#   psql -c '\l'
+# }
 
-# Fixup for 2.7.8
-fix278() {
-  sed -i .bak -e '/2\.7\.6/s/6/8/' .ruby-version
-  sed -i .bak -e "/^ruby/s/ruby '~> 2\.7\.6'/ruby '~> 2.7.8'/" Gemfile
-  git update-index --assume-unchanged .ruby-version Gemfile Gemfile.lock
-  bundle install
-}
+# # Fixup for 2.7.8
+# fix278() {
+#   sed -i .bak -e '/2\.7\.6/s/6/8/' .ruby-version
+#   sed -i .bak -e "/^ruby/s/ruby '~> 2\.7\.6'/ruby '~> 2.7.8'/" Gemfile
+#   git update-index --assume-unchanged .ruby-version Gemfile Gemfile.lock
+#   bundle install
+# }
 
 # Fixup for update passwords
 fixpwupdate() {
@@ -64,6 +65,11 @@ alias dcbrr='docker compose run --rm api /bin/bash -l -c "bundle exec rails runn
 alias dcdbmigrate='docker compose run --rm api /bin/bash -l -c "bundle exec rails db:migrate" '
 alias dcbtestprepare='docker compose run --rm api /bin/bash -l -c "bundle exec rails db:test:prepare" '
 alias dcrspec='docker compose run --rm api /bin/bash -l -c "bundle exec rails db:test:prepare; bundle exec rspec" '
+dcpwupdate() {
+  sed -i .bak.$(timestamp) -e 's/25/12/' lib/tasks/util/update_user_passwords_for_test.rake && \
+    git update-index --assume-unchanged lib/tasks/util/update_user_passwords_for_test.rake && \
+    docker compose run -rm api /bin/bash -l -c "PASSWORD=testtesttest bundle exec rails util:update_user_passwords_for_test"
+}
 
 # postgreswql stuff
 alias dclsdb='docker compose exec postgres_db /bin/bash -lc "psql -U postgres -c \"\l\""'

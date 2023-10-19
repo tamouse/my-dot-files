@@ -11,12 +11,13 @@ alias .p="popd "
 alias .-="popd "
 
 export EMACS_EDITOR=/Applications/Emacs.app
-alias e='emacsclient -a $EMACS_EDITOR -c'
-alias ec='emacsclient -a $EMACS_EDITOR -c'
-alias er='emacsclient -a $EMACS_EDITOR -r'
-alias en='emacsclient -a $EMACS_EDITOR -c -n'
-alias ecn='emacsclient -a $EMACS_EDITOR -c -n'
-alias ern='emacsclient -a $EMACS_EDITOR -r -n'
+alias estart="open $EMACS_EDITOR"
+alias e="emacsclient -a $EMACS_EDITOR -c"
+alias ec="emacsclient -a $EMACS_EDITOR -c"
+alias er="emacsclient -a $EMACS_EDITOR -r"
+alias en="emacsclient -a $EMACS_EDITOR -c -n"
+alias ecn="emacsclient -a $EMACS_EDITOR -c -n"
+alias ern="emacsclient -a $EMACS_EDITOR -r -n"
 alias sumacs='sudo emacs -nw -Q'
 
 alias by='bundle && yarn'
@@ -132,6 +133,6 @@ function psgrep() {
 }
 
 
-function dl() {
+function dlog() {
     echo $(date "+%FT%T") "$PWD" ':' "$@" >> $HOME/.dev.log
 }
