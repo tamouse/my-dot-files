@@ -36,3 +36,7 @@ fi
 # The original version is saved in .zprofile.pysave
 export PATH="/Library/Frameworks/Python.framework/Versions/3.11/bin:${PATH}"
 export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+
+if command -v ngrok &>/dev/null; then
+  eval "$(ngrok completion)"
+fi
