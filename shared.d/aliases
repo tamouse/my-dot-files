@@ -43,6 +43,12 @@ alias lm="$LSCMD -m $LS_OPTS"
 # Show me the dotfiles, bruh
 alias lld="find -s . -mindepth 1 -maxdepth 1 -type d -print0 | xargs -0 $LSCMD -AFhld $LS_OPTS; find -s . -mindepth 1 -maxdepth 1 \! -type d -print0 | xargs -0 $LSCMD -AFhl $LS_OPTS"
 
+dir_count() {
+  for d in ${@} ; do
+    echo -n "  ${d}: "
+    find ${d} -maxdepth 1 -type d | sed 1d | wc -l
+  done
+}
 # a grepency, we love colour
 # a grepency, we love colour
 export GREPCMD=/usr/bin/grep
