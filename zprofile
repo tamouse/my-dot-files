@@ -37,6 +37,10 @@ fi
 export PATH="/Library/Frameworks/Python.framework/Versions/3.11/bin:${PATH}"
 export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
 
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="/opt/homebrew/opt/libxml2/bin:$PATH"
+export PATH="$HOME/.emacs.d/bin:$PATH"
+
 if command -v ngrok &>/dev/null; then
   eval "$(ngrok completion)"
 fi

@@ -3,7 +3,7 @@
 	email = tamara@mrets.org
 [core]
 	autocrlf = input
-	excludesfile = /Users/tamara/.gitignore_global
+	excludesfile = $HOME/.gitignore_global
 [color]
 	ui = true
 [push]

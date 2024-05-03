@@ -17,6 +17,9 @@ alias dcrunrm='docker compose run --rm'
 alias dcstart='docker compose start'
 alias dcstop='docker compose stop'
 alias dcunpause='docker compose unpause'
+alias dcunp='docker compose unpause'
+
+alias dcunpause='docker compose unpause'
 alias dcup='docker compose up'
 
 

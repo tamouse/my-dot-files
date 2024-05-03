@@ -4,7 +4,7 @@
 #
 
 if [ ! -f "bashrc" ] ; then
-    echo "Not executing setup.sh inll dot-files main directory!"
+    echo "Not executing setup.sh in dot-files main directory!"
     exit 1
 fi
 
@@ -12,10 +12,10 @@ fi
 BACKUP_DIR="$HOME/.backup-dot-files-$(date '+%Y-%m-%d-%H-%M-%S')"
 mkdir -p $BACKUP_DIR
 
-SOURCE_FILES="$PWD/bash_profile $PWD/bashrc $PWD/zshrc $PWD/gitconfig $PWD/gitignore_global $PWD/hosts $PWD/profile $PWD/zprofile $PWD/pryrc"
+SOURCE_FILES="$PWD/bash_profile $PWD/bashrc $PWD/zshrc $PWD/gitignore_global $PWD/hosts $PWD/profile $PWD/zprofile $PWD/pryrc"
 SOURCE_DIRS="$PWD/bashrc.d $PWD/profile.d $PWD/shared.d $PWD/zprofile.d"
 
-ROOT_FILES="$HOME/.bash_profile $HOME/.bashrc $HOME/.zshrc $HOME/.gitconfig $HOME/.gitignore_global $HOME/.hosts $HOME/.profile $HOME/.zprofile $HOME/.pryrc"
+ROOT_FILES="$HOME/.bash_profile $HOME/.bashrc $HOME/.zshrc $HOME/.gitignore_global $HOME/.hosts $HOME/.profile $HOME/.zprofile $HOME/.pryrc"
 ROOT_DIRS="$HOME/.bashrc.d $HOME/.profile.d $HOME/.zprofile.d $HOME/.shared.d"
 
 for f in $ROOT_FILES ; do
@@ -25,7 +25,7 @@ for d in $ROOT_DIRS ; do
   [ ! -d "$d" ] && mkdir -p "$d"
 done
 
-echo "removing old files"
+echo "backing up  old files"
 for f in $ROOT_FILES ; do
   \cp -v "$f" "$BACKUP_DIR/$(basename $f)"
 done
@@ -34,6 +34,7 @@ for d in $ROOT_DIRS ; do
   \cp -v -R "$d" "$BACKUP_DIR/$(basename $d)"
 done
 
+echo "removing old files"
 for f in $ROOT_FILES ; do
   \rm -v -f "$f"
 done
@@ -41,6 +42,11 @@ done
 for d in $ROOT_DIRS; do
   \rm -rfv "$d"
 done
+
+echo 'Special handling for $HOME/.gitconfig'
+
+\rm $HOME/.gitconfig
+sed -e 's|$HOME|'$HOME'|' $PWD/gitconfig > $HOME/.gitconfig
 
 echo "Copying files and directories from $PWD into $HOME"
 
