@@ -1,6 +1,6 @@
 [user]
 	name = Tamara Temple
-	email = tamara@mrets.org
+	email = tamouse@gmail.com
 [core]
 	autocrlf = input
 	excludesfile = $HOME/.gitignore_global

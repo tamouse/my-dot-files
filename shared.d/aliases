@@ -81,6 +81,7 @@ alias rsyncx='rsync -avz --rexclude-from=$HOME/.rsync_excludes '
 alias rsnx='rsync -avz --rexclude-from=$HOME/.rsync_excludes '
 
 alias log_action='echo "$(date "+%FT%T"): "'
+alias rmdstore='find . -name .DS_Store -print -delete'
 alias ytdl='youtube-dl -f 18 -o "%(title)s-%(id)s.%(ext)s" -k -x --audio-format mp3 '
 
 export XCOP='xargs bundle exec rubocop'
@@ -109,7 +110,8 @@ function lc_filenames () {
 # clean file name: lower case, no spaces, alphanumeric plus _-+. only
 function clean_filenames () {
   for f in $@ ; do
-    echo "$1" | perl -p -e 'chomp;s/\s+/_/g;s/[^[:alnum:]_+\.-]*//g;lc;'
+    echo "$1" | ruby -pe '$_=chomp.strip.gsub(/[^[:alnum:]]+/,"_").downcase'
+
   done
 }
 
