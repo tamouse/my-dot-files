@@ -89,28 +89,28 @@ alias xcops=${XCOP}
 alias xcopsa="${XCOP} -a"
 alias xcopsaa="${XCOP} -A"
 
-function tree () {
+tree () {
     /bin/ls -AR | grep ':$' | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'
 }
 
 # replace spaces in file names with underscores
-function unspace_filenames () {
+function mv_unspace_filenames () {
   for f in $@ ; do
-    echo "$f" | tr -s " " "_"
+    mv "$f" "$(echo "$f" | tr -s " " "_")"
   done
 }
 
 # lowercase file names
-function lc_filenames () {
+function mv_lc_filenames () {
   for f in $@ ; do
-    echo "$f" | tr '[:upper:]' '[:lower:]'
+    mv "$f" "$(echo "$f" | tr '[:upper:]' '[:lower:]')"
   done
 }
 
 # clean file name: lower case, no spaces, alphanumeric plus _-+. only
-function clean_filenames () {
+function mv_clean_filenames () {
   for f in $@ ; do
-    echo "$1" | ruby -pe '$_=chomp.strip.gsub(/[^[:alnum:]]+/,"_").downcase'
+    mv "$f" "$(echo "$1" | ruby -pe '$_=chomp.strip.gsub(/[^[:alnum:]]+/,"_").downcase')"
 
   done
 }
@@ -130,7 +130,7 @@ function restore () {
 }
 
 # rename old files in pwd with new extension
-function rename_all () {
+function mv_replace_ext () {
     for f in *.$1 ; do
 	    mv "$f" "${f%%.$1}.$2"
     done
